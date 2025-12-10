@@ -41,7 +41,7 @@ function initWorld() {
     // 3. Trees
     for (let x = 0; x < CHUNK_W; x++) {
         const h = getGroundHeight(x);
-        if (x > 15 && x < CHUNK_W - 15 && world[h * CHUNK_W + x] === IDS.GRASS_BLOCK && Math.random() < 0.08) {
+        if (x > 15 && x < CHUNK_W - 15 && Math.random() < 0.08) {
              const treeHeight = 5 + Math.floor(Math.random() * 5);
              for (let i = 1; i <= treeHeight; i++) {
                  if (h - i >= 0) world[(h - i) * CHUNK_W + x] = IDS.WOOD;

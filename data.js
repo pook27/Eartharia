@@ -19,7 +19,7 @@ const ITEM_DEFINITIONS = {
     "Clay Block": { c: '#bcaaa4', solid: 1, hardness: 1, icon: '🧱' },
     "Sand Block": { c: '#fdd835', solid: 1, hardness: 1, icon: '🟨' },
     "Mud Block":  { c: '#5d4037', solid: 1, hardness: 1, icon: '🏾' },
-    "Wood":       { c: '#6d4c41', solid: 1, hardness: 2, icon: '🪵' },
+    "Wood":       { c: '#9f6a40', solid: 1, hardness: 2, icon: '🪵' },
     "Gray Brick": { c: '#546e7a', solid: 1, hardness: 3, icon: '🧱' },
     "Red Brick":  { c: '#d32f2f', solid: 1, hardness: 3, icon: '🧱' },
 
