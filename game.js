@@ -16,14 +16,10 @@ function initWorld() {
 
             if (y < h) {
                 world[idx] = IDS.AIR;
-            } else if (y === h) {
-                world[idx] = IDS.GRASS;
             } else if (y < h + 6) {
-                world[idx] = IDS.DIRT;
-            } else if (y >= CHUNK_H - 2) {
-                world[idx] = IDS.BEDROCK;
+                world[idx] = IDS.DIRT_BLOCK;  // From JSON
             } else {
-                world[idx] = IDS.STONE;
+                world[idx] = IDS.STONE_BLOCK; // From JSON
             }
 
             // Caves
@@ -37,15 +33,15 @@ function initWorld() {
         }
     }
 
-    // 2. Ore Generation
-    generateOre(IDS.ORE_COPPER, 60, 0.5); // Common, high up
-    generateOre(IDS.ORE_IRON, 40, 0.6);   // Medium
-    generateOre(IDS.ORE_GOLD, 25, 0.7);   // Rare, deep
+    // 2. Ore Generation (Using new keys)
+    generateOre(IDS.COPPER_ORE, 60, 0.5);
+    generateOre(IDS.IRON_ORE, 40, 0.6);
+    generateOre(IDS.GOLD_ORE, 25, 0.7);
 
     // 3. Trees
     for (let x = 0; x < CHUNK_W; x++) {
         const h = getGroundHeight(x);
-        if (x > 15 && x < CHUNK_W - 15 && world[h * CHUNK_W + x] === IDS.GRASS && Math.random() < 0.08) {
+        if (x > 15 && x < CHUNK_W - 15 && world[h * CHUNK_W + x] === IDS.GRASS_BLOCK && Math.random() < 0.08) {
              const treeHeight = 5 + Math.floor(Math.random() * 5);
              for (let i = 1; i <= treeHeight; i++) {
                  if (h - i >= 0) world[(h - i) * CHUNK_W + x] = IDS.WOOD;
@@ -56,7 +52,7 @@ function initWorld() {
                      if (lx >= 0 && lx < CHUNK_W && ly >= 0 && ly < CHUNK_H) {
                          const dist = Math.abs(lx - x) + Math.abs(ly - leafTop);
                          if (dist <= 2 && world[ly * CHUNK_W + lx] === IDS.AIR) {
-                             world[ly * CHUNK_W + lx] = IDS.LEAVES;
+                             world[ly * CHUNK_W + lx] = IDS.LEAVES_BLOCK; // Manual ID
                          }
                      }
                  }
@@ -87,21 +83,18 @@ function getGroundHeight(x) {
 function generateOre(id, attempts, depthFactor) {
     for (let i = 0; i < attempts; i++) {
         const x = Math.floor(Math.random() * CHUNK_W);
-        // Depth logic: 0 is top, 1 is bottom
-        const minY = Math.floor(CHUNK_H * 0.2); // Start below surface
+        const minY = Math.floor(CHUNK_H * 0.2);
         const y = minY + Math.floor(Math.random() * (CHUNK_H * depthFactor));
 
         if (x >= 0 && x < CHUNK_W && y >= 0 && y < CHUNK_H) {
-            // Vein generation
             const size = 3 + Math.floor(Math.random() * 5);
             for (let j = 0; j < size; j++) {
                 const ox = x + Math.floor(Math.random() * 3) - 1;
                 const oy = y + Math.floor(Math.random() * 3) - 1;
                 const idx = oy * CHUNK_W + ox;
-                // Only replace stone or dirt
                 if (ox >= 0 && ox < CHUNK_W && oy >= 0 && oy < CHUNK_H) {
                     const t = world[idx];
-                    if (t === IDS.STONE || t === IDS.DIRT) {
+                    if (t === IDS.STONE_BLOCK || t === IDS.DIRT_BLOCK) {
                         world[idx] = id;
                     }
                 }
@@ -110,15 +103,14 @@ function generateOre(id, attempts, depthFactor) {
     }
 }
 
-// ... (generateCabin remains same) ...
 function generateCabin(cx, cy) {
     const w = 9, h = 6;
     for (let y = cy; y < cy + h; y++) {
         for (let x = cx; x < cx + w; x++) {
             if (x < 0 || x >= CHUNK_W || y < 0 || y >= CHUNK_H) continue;
             const idx = y * CHUNK_W + x;
-            if (y === cy || y === cy + h - 1) world[idx] = IDS.PLANKS;
-            else if (x === cx || x === cx + w - 1) world[idx] = IDS.PLANKS;
+            if (y === cy || y === cy + h - 1) world[idx] = IDS.WOOD;
+            else if (x === cx || x === cx + w - 1) world[idx] = IDS.WOOD;
             else world[idx] = IDS.AIR;
         }
     }
@@ -128,19 +120,20 @@ function generateCabin(cx, cy) {
     const chestX = cx + Math.floor(w / 2), chestY = cy + h - 2;
     if (chestX < CHUNK_W && chestY < CHUNK_H) {
         world[chestY * CHUNK_W + chestX] = IDS.CHEST;
+        // Use standard JSON IDs for Loot
         chests[`${chestX},${chestY}`] = [
-            { id: IDS.POTION, n: 2 },
-            { id: IDS.BAR_COPPER, n: 3 + Math.floor(Math.random()*5) },
-            { id: IDS.COIN, n: 10 + Math.floor(Math.random()*50) }
+            { id: IDS.LESSER_HEALING_POTION, n: 2 },
+            { id: IDS.COPPER_BAR, n: 3 + Math.floor(Math.random()*5) },
+            { id: IDS.GOLD_COIN, n: 1 + Math.floor(Math.random()*5) }
         ];
     }
 }
 
-// ... (loop, smartcursor, handleinput, etc same as previous optimized version) ...
 function loop() {
     time = (time + 1) % 24000;
     const isNight = time > 13000 && time < 23000;
 
+    // ... (Spawning Logic) ...
     if (entities.length < 15 && Math.random() < (isNight ? 0.025 : 0.015)) {
         const spawnSide = Math.random() > 0.5 ? 1 : -1;
         const sx = player.x + spawnSide * (350 + Math.random() * 250);
@@ -191,6 +184,7 @@ function loop() {
     requestAnimationFrame(loop);
 }
 
+// ... (Rest of logic: updateSmartCursor, handleInput need slight ID checks)
 function updateSmartCursor() {
     const hl = document.getElementById('smart-cursor-highlight');
     if (!smartCursorActive) {
@@ -204,7 +198,7 @@ function updateSmartCursor() {
     const cur = player.inv[player.sel];
     smartTarget = null;
 
-    if (cur.id && PROPS[cur.id].tool) {
+    if (cur.id && PROPS[cur.id] && PROPS[cur.id].tool) {
         const tool = PROPS[cur.id].tool;
         const px = Math.floor((player.x + player.w/2) / TILE);
         const py = Math.floor((player.y + player.h/2) / TILE);
@@ -215,7 +209,7 @@ function updateSmartCursor() {
                 for (let x = px - 10; x < px + 10; x++) {
                     if(x<0||x>=CHUNK_W||y<0||y>=CHUNK_H) continue;
                     const tile = world[y*CHUNK_W+x];
-                    if (tile === IDS.WOOD) {
+                    if (tile === IDS.WOOD) { // Use ID from JSON
                         const d = Math.hypot(x*TILE - mx, y*TILE - my);
                         if (d < bestDist && d < 300) {
                             bestDist = d;
@@ -274,23 +268,23 @@ function handleInput() {
     if (mouse.l && !mouse.lastL) {
         mouse.lastL = true;
 
-        if (cur.id && PROPS[cur.id].tool === 'sword') {
+        if (cur.id && PROPS[cur.id] && PROPS[cur.id].tool === 'sword') {
             entities.forEach(e => {
                 if (Math.hypot(targetPxX - (e.x+e.w/2), targetPxY - (e.y+e.h/2)) < 60) {
                     e.hit(PROPS[cur.id].dmg, player.face);
                 }
             });
         }
-        else if (tile !== IDS.BEDROCK) {
+        else if (tile !== IDS.BEDROCK_BLOCK) {
             const prop = PROPS[tile] || {};
             let canMine = false;
 
-            if (cur.id && PROPS[cur.id].tool) {
+            if (cur.id && PROPS[cur.id] && PROPS[cur.id].tool) {
                 const tool = PROPS[cur.id].tool;
                 const pwr = PROPS[cur.id].pwr || 1;
 
-                if (tool === 'pick' && (tile === IDS.STONE || tile === IDS.DIRT || tile === IDS.GRASS || tile === IDS.SAND || tile === IDS.BRICK || tile === IDS.WORKBENCH || tile === IDS.TORCH || tile === IDS.CHEST || tile === IDS.FURNACE || tile === IDS.ANVIL || tile >= IDS.ORE_COPPER && tile <= IDS.ORE_GOLD)) canMine = true;
-                if (tool === 'axe' && (tile === IDS.WOOD || tile === IDS.LEAVES || tile === IDS.PLANKS)) canMine = true;
+                if (tool === 'pick' && prop.solid) canMine = true;
+                if (tool === 'axe' && (tile === IDS.WOOD || tile === IDS.LEAVES_BLOCK || tile === IDS.WOOD_PLANKS_BLOCK)) canMine = true;
 
                 if (prop.hardness && pwr < prop.hardness) canMine = false;
             } else {
@@ -303,7 +297,10 @@ function handleInput() {
                     return;
                 }
                 world[idx] = IDS.AIR;
-                if (tile !== IDS.LEAVES || Math.random() > 0.5) spawnLoot(targetPxX, targetPxY, tile, 1);
+                // Only drop loot for certain tiles
+                if (tile !== IDS.LEAVES_BLOCK && tile !== IDS.GRASS_BLOCK) {
+                    spawnLoot(targetPxX, targetPxY, tile, 1);
+                }
                 spawnParticles(targetPxX, targetPxY, prop.c, 5);
                 if (tile === IDS.CHEST) delete chests[`${tx},${ty}`];
             }
@@ -313,8 +310,7 @@ function handleInput() {
     if (mouse.r && !mouse.lastR) {
         mouse.lastR = true;
 
-        // Interaction
-        if (tile === IDS.WORKBENCH || tile === IDS.FURNACE || tile === IDS.ANVIL) {
+        if (tile === IDS.WORK_BENCH || tile === IDS.FURNACE || tile === IDS.IRON_ANVIL) {
             if (!isInventoryOpen) toggleInventory();
         }
         else if (tile === IDS.CHEST && chests[`${tx},${ty}`]) {
@@ -351,6 +347,10 @@ function handleInput() {
     if (!mouse.l) mouse.lastL = false;
     if (!mouse.r) mouse.lastR = false;
 }
+
+// ... (Rest of file same: draw, updateUI, etc. - ensure standard variable reuse)
+// For brevity, include the rest of the original file helper functions here.
+// spawnLoot, spawnParticles, spawnFloatText, draw, updateUI, updateInv, etc.
 
 // ... (spawn functions same) ...
 function spawnLoot(x, y, id, n) { loot.push(new LootItem(x, y, id, n)); }
@@ -568,5 +568,12 @@ window.onmousemove = e => { mouse.x=e.clientX; mouse.y=e.clientY; if(heldItem) {
 window.onwheel = e => { if(isInventoryOpen) return; player.sel = (player.sel + (e.deltaY > 0 ? 1 : -1) + 10) % 10; updateInv(); };
 window.oncontextmenu = e => e.preventDefault();
 
-initWorld();
-loop();
+initGameData().then(success => {
+    if (success) {
+        initWorld(); // Generate world only after IDs are ready
+        // start game loop, etc.
+        updateInv(); // Refresh UI
+        loop();
+    }
+});
+

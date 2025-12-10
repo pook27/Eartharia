@@ -5,158 +5,137 @@ const GRAVITY = 0.42;
 const TERM_VEL = 14;
 const PLAYER_REACH = 180;
 
-/* ======================== ITEM/BLOCK IDS ======================== */
-const IDS = {
-    AIR: 0,
-    // Blocks
-    DIRT: 1, STONE: 2, GRASS: 3, WOOD: 4, LEAVES: 5,
-    PLANKS: 6, BRICK: 7, SAND: 8, BEDROCK: 99,
+const IDS = { AIR: 0 };
+const PROPS = {};
+const RECIPES = [];
 
-    // Ores
-    ORE_COPPER: 20, ORE_IRON: 21, ORE_GOLD: 22,
+/* ================= MANUAL PROPERTY DEFINITIONS =================
+   These provide game logic (physics, colors, stats) to the raw IDs loaded from JSON.
+   Keys MUST match the "name" field in items.json exactly.
+*/
+const ITEM_DEFINITIONS = {
+    // --- Terrain ---
+    "Dirt Block": { c: '#5d4037', solid: 1, hardness: 1, icon: '🟫' },
+    "Stone Block": { c: '#78909c', solid: 1, hardness: 2, icon: '🌑' },
+    "Clay Block": { c: '#bcaaa4', solid: 1, hardness: 1, icon: '🧱' },
+    "Sand Block": { c: '#fdd835', solid: 1, hardness: 1, icon: '🟨' },
+    "Mud Block":  { c: '#5d4037', solid: 1, hardness: 1, icon: '🏾' },
+    "Wood":       { c: '#6d4c41', solid: 1, hardness: 2, icon: '🪵' },
+    "Gray Brick": { c: '#546e7a', solid: 1, hardness: 3, icon: '🧱' },
+    "Red Brick":  { c: '#d32f2f', solid: 1, hardness: 3, icon: '🧱' },
 
-    // Stations / Furniture
-    WORKBENCH: 10, TORCH: 11, CHEST: 12, DOOR: 13,
-    FURNACE: 14, ANVIL: 15,
+    // --- Ores ---
+    "Copper Ore": { c: '#e78a61', solid: 1, hardness: 2, icon: '🟠' },
+    "Iron Ore":   { c: '#a19d94', solid: 1, hardness: 3, icon: '⚪' },
+    "Silver Ore": { c: '#e0e0e0', solid: 1, hardness: 3, icon: '⚪' },
+    "Gold Ore":   { c: '#ffeb3b', solid: 1, hardness: 3, icon: '🟡' },
+    "Demonite Ore":{ c: '#7b1fa2', solid: 1, hardness: 4, icon: '🟣' },
 
-    // Tools - Wood
-    PICK_WOOD: 100, AXE_WOOD: 101, SWORD_WOOD: 102,
-    // Tools - Copper
-    PICK_COPPER: 110, AXE_COPPER: 111, SWORD_COPPER: 112,
-    // Tools - Iron
-    PICK_IRON: 120, AXE_IRON: 121, SWORD_IRON: 122,
-    // Tools - Gold
-    PICK_GOLD: 130, AXE_GOLD: 131, SWORD_GOLD: 132,
+    // --- Stations / Furniture ---
+    "Work Bench": { c: '#a1887f', solid: 0, interact: 1, icon: '🛠️' },
+    "Furnace":    { c: '#757575', solid: 0, interact: 1, icon: '♨️' },
+    "Iron Anvil": { c: '#546e7a', solid: 0, interact: 1, icon: '⚓' },
+    "Chest":      { c: '#ff8f00', solid: 0, interact: 1, icon: '📦' },
+    "Torch":      { c: '#ffeb3b', solid: 0, light: 10, icon: '🔥' },
+    "Wooden Door":{ c: '#795548', solid: 0, interact: 1, icon: '🚪' },
+    "Sunflower":  { c: '#ffeb3b', solid: 0, icon: '🌻' },
 
-    // Armor - Wood
-    HELMET_WOOD: 150, CHEST_WOOD: 151, LEGS_WOOD: 152,
-    // Armor - Copper
-    HELMET_COPPER: 160, CHEST_COPPER: 161, LEGS_COPPER: 162,
-    // Armor - Iron
-    HELMET_IRON: 170, CHEST_IRON: 171, LEGS_IRON: 172,
-    // Armor - Gold
-    HELMET_GOLD: 180, CHEST_GOLD: 181, LEGS_GOLD: 182,
+    // --- Tools: Copper (Starter) ---
+    "Copper Pickaxe":    { c: '#e78a61', tool: 'pick', pwr: 3, icon: '⛏️' },
+    "Copper Axe":        { c: '#e78a61', tool: 'axe', pwr: 3, icon: '🪓' },
+    "Copper Shortsword": { c: '#e78a61', tool: 'sword', dmg: 5, icon: '🗡️' },
+    "Copper Broadsword": { c: '#e78a61', tool: 'sword', dmg: 8, icon: '🗡️' },
 
-    // Materials / Misc
-    GEL: 200, COIN: 201, POTION: 202, HEART: 203, STAR: 204,
-    BAR_COPPER: 210, BAR_IRON: 211, BAR_GOLD: 212
+    // --- Tools: Iron ---
+    "Iron Pickaxe":    { c: '#cfd8dc', tool: 'pick', pwr: 5, icon: '⛏️' },
+    "Iron Axe":        { c: '#cfd8dc', tool: 'axe', pwr: 5, icon: '🪓' },
+    "Iron Broadsword": { c: '#cfd8dc', tool: 'sword', dmg: 10, icon: '🗡️' },
+
+    // --- Tools: Silver/Gold ---
+    "Silver Pickaxe":  { c: '#e0e0e0', tool: 'pick', pwr: 6, icon: '⛏️' },
+    "Gold Pickaxe":    { c: '#ffeb3b', tool: 'pick', pwr: 8, icon: '⛏️' },
+
+    // --- Materials / Drops ---
+    "Gel":         { c: '#42a5f5', icon: '💧' },
+    "Lens":        { c: '#424242', icon: '👁️' },
+    "Fallen Star": { c: '#7e57c2', icon: '⭐' },
+    "Copper Coin": { c: '#bcaaa4', icon: '🪙' },
+    "Silver Coin": { c: '#e0e0e0', icon: '🪙' },
+    "Gold Coin":   { c: '#ffd700', icon: '🪙' },
+    "Heart":       { c: '#f44336', icon: '❤️' }, // If dropping hearts as items
+
+    // --- Bars ---
+    "Copper Bar": { c: '#e78a61', icon: '🟧' },
+    "Iron Bar":   { c: '#b0bec5', icon: '⬜' },
+    "Silver Bar": { c: '#e0e0e0', icon: '⬜' },
+    "Gold Bar":   { c: '#fbc02d', icon: '🟨' },
+
+    // --- Consumables ---
+    "Mushroom": { c: '#ffe0b2', consumable: 1, icon: '🍄' },
+    "Lesser Healing Potion": { c: '#e53935', consumable: 1, icon: '🧪' },
 };
 
-/* ======================== PROPERTIES ======================== */
-const PROPS = {
-    // Blocks
-    [IDS.DIRT]:  { c: '#5d4037', solid: 1, name: "Dirt", hardness: 1, icon: '🟫' },
-    [IDS.STONE]: { c: '#78909c', solid: 1, name: "Stone", hardness: 2, icon: '🌑' },
-    [IDS.GRASS]: { c: '#558b2f', solid: 1, name: "Grass Block", hardness: 1, icon: '🟩' },
-    [IDS.WOOD]:  { c: '#6d4c41', solid: 1, name: "Wood", hardness: 2, icon: '🪵' },
-    [IDS.LEAVES]:{ c: '#33691e', solid: 0, name: "Leaves", hardness: 1, icon: '🍃' },
-    [IDS.PLANKS]:{ c: '#8d6e63', solid: 1, name: "Wood Planks", hardness: 2, icon: '🛖' },
-    [IDS.BRICK]: { c: '#546e7a', solid: 1, name: "Gray Brick", hardness: 3, icon: '🧱' },
-    [IDS.SAND]:  { c: '#fdd835', solid: 1, name: "Sand", hardness: 1, icon: '🟨' },
-    [IDS.BEDROCK]:{ c: '#212121', solid: 1, name: "Bedrock", hardness: 999, icon: '⬛' },
+/* ======================== ASYNC INITIALIZER ======================== */
+async function initGameData() {
+    console.log("Loading game data...");
 
-    // Ores
-    [IDS.ORE_COPPER]: { c: '#e78a61', solid: 1, name: "Copper Ore", hardness: 2, icon: '🟠' },
-    [IDS.ORE_IRON]:   { c: '#a19d94', solid: 1, name: "Iron Ore", hardness: 3, icon: '⚪' },
-    [IDS.ORE_GOLD]:   { c: '#ffeb3b', solid: 1, name: "Gold Ore", hardness: 3, icon: '🟡' },
+    try {
+        const [itemsRaw, recipesRaw, tablesRaw] = await Promise.all([
+            fetch('./json/items.json').then(r => r.json()),
+            fetch('./json/recipes.json').then(r => r.json()),
+            fetch('./json/tables.json').then(r => r.json())
+        ]);
 
-    // Stations
-    [IDS.WORKBENCH]: { c: '#a1887f', solid: 0, interact: 1, name: "Work Bench", icon: '🛠️' },
-    [IDS.FURNACE]:   { c: '#757575', solid: 0, interact: 1, name: "Furnace", icon: '♨️' },
-    [IDS.ANVIL]:     { c: '#546e7a', solid: 0, interact: 1, name: "Iron Anvil", icon: '⚓' },
-    [IDS.TORCH]:     { c: '#ffeb3b', solid: 0, light: 10, name: "Torch", icon: '🔥' },
-    [IDS.CHEST]:     { c: '#ff8f00', solid: 0, interact: 1, name: "Chest", icon: '📦' },
-    [IDS.DOOR]:      { c: '#795548', solid: 0, interact: 1, name: "Door", icon: '🚪' },
+        // 1. Process Items -> Populate IDS and PROPS from JSON
+        itemsRaw.forEach(item => {
+            const id = parseInt(item.id);
+            const name = item.name;
+            // Create CONSTANT_CASE key: "Iron Pickaxe" -> "IRON_PICKAXE"
+            const key = name.toUpperCase().replace(/ /g, '_').replace(/[']/g, '');
 
-    // Tools - Wood
-    [IDS.PICK_WOOD]:  { c: '#a1887f', tool: 'pick', pwr: 2, name: "Wooden Pickaxe", icon: '⛏️' },
-    [IDS.AXE_WOOD]:   { c: '#a1887f', tool: 'axe', pwr: 2, name: "Wooden Axe", icon: '🪓' },
-    [IDS.SWORD_WOOD]: { c: '#bcaaa4', tool: 'sword', dmg: 7, name: "Wooden Sword", icon: '🗡️' },
+            IDS[key] = id;
 
-    // Tools - Copper
-    [IDS.PICK_COPPER]:  { c: '#e78a61', tool: 'pick', pwr: 3, name: "Copper Pickaxe", icon: '⛏️' },
-    [IDS.AXE_COPPER]:   { c: '#e78a61', tool: 'axe', pwr: 3, name: "Copper Axe", icon: '🪓' },
-    [IDS.SWORD_COPPER]: { c: '#e78a61', tool: 'sword', dmg: 9, name: "Copper Broadsword", icon: '🗡️' },
+            PROPS[id] = {
+                id: id,
+                name: name,
+                c: '#ffffff', // Default
+                icon: '❓'
+            };
 
-    // Tools - Iron
-    [IDS.PICK_IRON]:  { c: '#cfd8dc', tool: 'pick', pwr: 5, name: "Iron Pickaxe", icon: '⛏️' },
-    [IDS.AXE_IRON]:   { c: '#cfd8dc', tool: 'axe', pwr: 5, name: "Iron Axe", icon: '🪓' },
-    [IDS.SWORD_IRON]: { c: '#cfd8dc', tool: 'sword', dmg: 14, name: "Iron Broadsword", icon: '🗡️' },
+            // Merge stats if defined manually
+            if (ITEM_DEFINITIONS[name]) {
+                Object.assign(PROPS[id], ITEM_DEFINITIONS[name]);
+            }
+        });
 
-    // Tools - Gold
-    [IDS.PICK_GOLD]:  { c: '#fff176', tool: 'pick', pwr: 7, name: "Gold Pickaxe", icon: '⛏️' },
-    [IDS.AXE_GOLD]:   { c: '#fff176', tool: 'axe', pwr: 7, name: "Gold Axe", icon: '🪓' },
-    [IDS.SWORD_GOLD]: { c: '#fff176', tool: 'sword', dmg: 18, name: "Gold Broadsword", icon: '🗡️' },
+        // 2. Process Recipes
+        const tableIdToName = {};
+        tablesRaw.forEach(t => tableIdToName[t.id] = t.name);
 
-    // Armor - Wood
-    [IDS.HELMET_WOOD]: { c: '#8d6e63', type: 'armor', slot: 0, defense: 1, name: "Wood Helmet", icon: '🧢' },
-    [IDS.CHEST_WOOD]:  { c: '#8d6e63', type: 'armor', slot: 1, defense: 1, name: "Wood Breastplate", icon: '👕' },
-    [IDS.LEGS_WOOD]:   { c: '#8d6e63', type: 'armor', slot: 2, defense: 1, name: "Wood Greaves", icon: '👖' },
+        recipesRaw.forEach(r => {
+            const outId = parseInt(r.name);
+            const quantity = parseInt(r.quantity) || 1;
+            const cost = {};
+            for(let i=1; i<=6; i++) {
+                const ingId = r[`ingredient${i}`];
+                const amt = r[`amount${i}`];
+                if(ingId) cost[parseInt(ingId)] = parseInt(amt);
+            }
+            let req = null;
+            if (r.table && tableIdToName[r.table]) {
+                const tableName = tableIdToName[r.table];
+                // Map table Name to Item ID (e.g. "Work Bench" -> IDS.WORK_BENCH)
+                const stationKey = tableName.toUpperCase().replace(/ /g, '_');
+                if (IDS[stationKey]) req = IDS[stationKey];
+            }
+            RECIPES.push({ out: outId, n: quantity, cost: cost, req: req });
+        });
 
-    // Armor - Copper
-    [IDS.HELMET_COPPER]: { c: '#e78a61', type: 'armor', slot: 0, defense: 2, name: "Copper Helmet", icon: '🧢' },
-    [IDS.CHEST_COPPER]:  { c: '#e78a61', type: 'armor', slot: 1, defense: 2, name: "Copper Chainmail", icon: '👕' },
-    [IDS.LEGS_COPPER]:   { c: '#e78a61', type: 'armor', slot: 2, defense: 2, name: "Copper Greaves", icon: '👖' },
+        console.log("Data loaded!", { IDS_COUNT: Object.keys(IDS).length });
+        return true;
 
-    // Armor - Iron
-    [IDS.HELMET_IRON]: { c: '#90a4ae', type: 'armor', slot: 0, defense: 3, name: "Iron Helmet", icon: '🪖' },
-    [IDS.CHEST_IRON]:  { c: '#90a4ae', type: 'armor', slot: 1, defense: 4, name: "Iron Chainmail", icon: '🥋' },
-    [IDS.LEGS_IRON]:   { c: '#90a4ae', type: 'armor', slot: 2, defense: 3, name: "Iron Greaves", icon: '👖' },
-
-    // Materials
-    [IDS.GEL]:    { c: '#42a5f5', name: "Gel", icon: '💧' },
-    [IDS.COIN]:   { c: '#ffd700', name: "Gold Coin", icon: '🪙' },
-    [IDS.POTION]: { c: '#e53935', name: "Health Potion", consumable: 1, icon: '🧪' },
-    [IDS.HEART]:  { c: '#f44336', name: "Heart", icon: '❤️' },
-    [IDS.STAR]:   { c: '#7e57c2', name: "Fallen Star", icon: '⭐' },
-
-    [IDS.BAR_COPPER]: { c: '#e78a61', name: "Copper Bar", icon: '🟧' },
-    [IDS.BAR_IRON]:   { c: '#b0bec5', name: "Iron Bar", icon: '⬜' },
-    [IDS.BAR_GOLD]:   { c: '#fbc02d', name: "Gold Bar", icon: '🟨' }
-};
-
-/* ======================== RECIPES ======================== */
-// req: 10=Workbench, 14=Furnace, 15=Anvil
-const RECIPES = [
-    // Basics
-    { out: IDS.WORKBENCH, n: 1, cost: { [IDS.WOOD]: 10 }, desc: "Crafting station" },
-    { out: IDS.TORCH, n: 3, cost: { [IDS.WOOD]: 1, [IDS.GEL]: 1 }, desc: "Provides light" },
-    { out: IDS.PLANKS, n: 1, cost: { [IDS.WOOD]: 1 }, desc: "Building material" },
-    { out: IDS.FURNACE, n: 1, cost: { [IDS.STONE]: 20, [IDS.WOOD]: 4, [IDS.TORCH]: 3 }, req: IDS.WORKBENCH, desc: "Smelts ore" },
-    { out: IDS.ANVIL, n: 1, cost: { [IDS.BAR_IRON]: 5 }, req: IDS.WORKBENCH, desc: "Crafts metal items" },
-
-    // Smelting (Furnace)
-    { out: IDS.BAR_COPPER, n: 1, cost: { [IDS.ORE_COPPER]: 3 }, req: IDS.FURNACE, desc: "Smelt ore" },
-    { out: IDS.BAR_IRON, n: 1, cost: { [IDS.ORE_IRON]: 3 }, req: IDS.FURNACE, desc: "Smelt ore" },
-    { out: IDS.BAR_GOLD, n: 1, cost: { [IDS.ORE_GOLD]: 3 }, req: IDS.FURNACE, desc: "Smelt ore" },
-    { out: IDS.BRICK, n: 1, cost: { [IDS.STONE]: 2 }, req: IDS.FURNACE, desc: "Construction" },
-
-    // Wood Gear
-    { out: IDS.SWORD_WOOD, n: 1, cost: { [IDS.WOOD]: 7 }, req: IDS.WORKBENCH },
-    { out: IDS.PICK_WOOD, n: 1, cost: { [IDS.WOOD]: 10 }, req: IDS.WORKBENCH },
-    { out: IDS.AXE_WOOD, n: 1, cost: { [IDS.WOOD]: 9 }, req: IDS.WORKBENCH },
-    { out: IDS.HELMET_WOOD, n: 1, cost: { [IDS.WOOD]: 20 }, req: IDS.WORKBENCH },
-    { out: IDS.CHEST_WOOD, n: 1, cost: { [IDS.WOOD]: 30 }, req: IDS.WORKBENCH },
-    { out: IDS.LEGS_WOOD, n: 1, cost: { [IDS.WOOD]: 25 }, req: IDS.WORKBENCH },
-
-    // Copper Gear (Anvil)
-    { out: IDS.SWORD_COPPER, n: 1, cost: { [IDS.BAR_COPPER]: 8 }, req: IDS.ANVIL },
-    { out: IDS.PICK_COPPER, n: 1, cost: { [IDS.BAR_COPPER]: 12 }, req: IDS.ANVIL },
-    { out: IDS.AXE_COPPER, n: 1, cost: { [IDS.BAR_COPPER]: 9 }, req: IDS.ANVIL },
-    { out: IDS.HELMET_COPPER, n: 1, cost: { [IDS.BAR_COPPER]: 15 }, req: IDS.ANVIL },
-    { out: IDS.CHEST_COPPER, n: 1, cost: { [IDS.BAR_COPPER]: 25 }, req: IDS.ANVIL },
-    { out: IDS.LEGS_COPPER, n: 1, cost: { [IDS.BAR_COPPER]: 20 }, req: IDS.ANVIL },
-
-    // Iron Gear (Anvil)
-    { out: IDS.SWORD_IRON, n: 1, cost: { [IDS.BAR_IRON]: 8 }, req: IDS.ANVIL },
-    { out: IDS.PICK_IRON, n: 1, cost: { [IDS.BAR_IRON]: 12 }, req: IDS.ANVIL },
-    { out: IDS.AXE_IRON, n: 1, cost: { [IDS.BAR_IRON]: 9 }, req: IDS.ANVIL },
-    { out: IDS.HELMET_IRON, n: 1, cost: { [IDS.BAR_IRON]: 20 }, req: IDS.ANVIL },
-    { out: IDS.CHEST_IRON, n: 1, cost: { [IDS.BAR_IRON]: 30 }, req: IDS.ANVIL },
-    { out: IDS.LEGS_IRON, n: 1, cost: { [IDS.BAR_IRON]: 25 }, req: IDS.ANVIL },
-
-    // Misc
-    { out: IDS.CHEST, n: 1, cost: { [IDS.WOOD]: 8, [IDS.BAR_IRON]: 2 }, req: IDS.WORKBENCH },
-    { out: IDS.DOOR, n: 1, cost: { [IDS.WOOD]: 6 }, req: IDS.WORKBENCH },
-    { out: IDS.POTION, n: 1, cost: { [IDS.GEL]: 2, [IDS.HEART]: 1 }, req: IDS.WORKBENCH }
-];
+    } catch (e) {
+        console.error("Failed to load data:", e);
+        return false;
+    }
+}
