@@ -14,8 +14,8 @@ let player;
 const keys = {};
 const mouse = { x: 0, y: 0, l: false, r: false, lastL: false, lastR: false };
 let uiOpen = false;
-let isInventoryOpen = false; // Separate state for Full Inventory
-let heldItem = null; // For drag and drop
+let isInventoryOpen = false;
+let heldItem = null;
 
 /* ======================== ENTITY CLASSES ======================== */
 class Entity {
@@ -98,11 +98,11 @@ class Player extends Entity {
         this.defense = 0;
         this.sel = 0;
         this.regenTimer = 0;
+        this.useTimer = 0; // NEW: Controls mining/attack speed for auto-fire
 
-        // FIXED STARTING ITEMS (Using Copper since it exists in JSON)
         this.inv[0] = { id: IDS.COPPER_PICKAXE, n: 1 };
         this.inv[1] = { id: IDS.COPPER_AXE, n: 1 };
-        this.inv[2] = { id: IDS.COPPER_BROADSWORD, n: 1 }; // Or Shortsword
+        this.inv[2] = { id: IDS.COPPER_BROADSWORD, n: 1 };
         this.inv[3] = { id: IDS.TORCH, n: 20 };
     }
 
@@ -146,6 +146,9 @@ class Player extends Entity {
 
         this.regenTimer++;
         if (this.regenTimer >= 100 && this.hp < this.maxHp) { this.hp++; this.regenTimer = 0; }
+
+        // NEW: Cooldown management
+        if (this.useTimer > 0) this.useTimer--;
     }
 
     add(id, n) {
@@ -172,6 +175,7 @@ class Player extends Entity {
         if (!item.id) return;
         const prop = PROPS[item.id];
         if (prop.consumable) {
+            // Simple hardcoded check for potion for now
             if (item.id === IDS.LESSER_HEALING_POTION && this.hp < this.maxHp) {
                 this.hp = Math.min(this.hp + 50, this.maxHp);
                 this.rem(item.id, 1);
@@ -215,7 +219,6 @@ class Slime extends Entity {
 
     die() {
         super.die();
-        // Use JSON ID
         spawnLoot(this.x + this.w/2, this.y + this.h/2, IDS.GEL, 1 + Math.floor(Math.random() * 3));
         if (Math.random() > 0.6) spawnLoot(this.x + this.w/2, this.y + this.h/2, IDS.COPPER_COIN, this.big ? 3 : 1);
     }
@@ -288,12 +291,33 @@ class FallenStar extends Entity {
     }
 }
 
+class NPC extends Entity {
+    constructor(x, y) {
+        super(x, y, 20, 44);
+        this.npc = true;
+        this.timer = 0;
+    }
+    update() {
+        super.update();
+        this.timer++;
+        if(this.timer % 200 === 0 && Math.random() > 0.5) this.vx = (Math.random()-0.5) * 4;
+        this.vx *= 0.9;
+
+        if(mouse.r && Math.hypot(mouse.x + camera.x - this.x, mouse.y + camera.y - this.y) < 50) {
+            const msgs = ["Press 'Esc' for inventory", "Right click armor to equip", "Scroll wheel changes items", "Dig down for copper", "Craft a workbench first"];
+            showBubble(this, msgs[Math.floor(Math.random()*msgs.length)]);
+            mouse.r = false;
+        }
+    }
+}
+
 class LootItem {
     constructor(x, y, id, n) {
         this.x = x; this.y = y; this.id = id; this.n = n;
         this.vx = (Math.random() - 0.5) * 5;
         this.vy = -4 - Math.random() * 2;
-        this.dead = false; this.bounces = 0;
+        this.dead = false;
+        this.bounces = 0;
     }
 
     update() {

@@ -17,9 +17,9 @@ function initWorld() {
             if (y < h) {
                 world[idx] = IDS.AIR;
             } else if (y < h + 6) {
-                world[idx] = IDS.DIRT_BLOCK;  // From JSON
+                world[idx] = IDS.DIRT_BLOCK;
             } else {
-                world[idx] = IDS.STONE_BLOCK; // From JSON
+                world[idx] = IDS.STONE_BLOCK;
             }
 
             // Caves
@@ -33,7 +33,7 @@ function initWorld() {
         }
     }
 
-    // 2. Ore Generation (Using new keys)
+    // 2. Ore Generation
     generateOre(IDS.COPPER_ORE, 60, 0.5);
     generateOre(IDS.IRON_ORE, 40, 0.6);
     generateOre(IDS.GOLD_ORE, 25, 0.7);
@@ -52,7 +52,7 @@ function initWorld() {
                      if (lx >= 0 && lx < CHUNK_W && ly >= 0 && ly < CHUNK_H) {
                          const dist = Math.abs(lx - x) + Math.abs(ly - leafTop);
                          if (dist <= 2 && world[ly * CHUNK_W + lx] === IDS.AIR) {
-                             world[ly * CHUNK_W + lx] = IDS.LEAVES_BLOCK; // Manual ID
+                             world[ly * CHUNK_W + lx] = IDS.LEAVES_BLOCK;
                          }
                      }
                  }
@@ -120,7 +120,6 @@ function generateCabin(cx, cy) {
     const chestX = cx + Math.floor(w / 2), chestY = cy + h - 2;
     if (chestX < CHUNK_W && chestY < CHUNK_H) {
         world[chestY * CHUNK_W + chestX] = IDS.CHEST;
-        // Use standard JSON IDs for Loot
         chests[`${chestX},${chestY}`] = [
             { id: IDS.LESSER_HEALING_POTION, n: 2 },
             { id: IDS.COPPER_BAR, n: 3 + Math.floor(Math.random()*5) },
@@ -133,7 +132,6 @@ function loop() {
     time = (time + 1) % 24000;
     const isNight = time > 13000 && time < 23000;
 
-    // ... (Spawning Logic) ...
     if (entities.length < 15 && Math.random() < (isNight ? 0.025 : 0.015)) {
         const spawnSide = Math.random() > 0.5 ? 1 : -1;
         const sx = player.x + spawnSide * (350 + Math.random() * 250);
@@ -184,7 +182,6 @@ function loop() {
     requestAnimationFrame(loop);
 }
 
-// ... (Rest of logic: updateSmartCursor, handleInput need slight ID checks)
 function updateSmartCursor() {
     const hl = document.getElementById('smart-cursor-highlight');
     if (!smartCursorActive) {
@@ -209,7 +206,7 @@ function updateSmartCursor() {
                 for (let x = px - 10; x < px + 10; x++) {
                     if(x<0||x>=CHUNK_W||y<0||y>=CHUNK_H) continue;
                     const tile = world[y*CHUNK_W+x];
-                    if (tile === IDS.WOOD) { // Use ID from JSON
+                    if (tile === IDS.WOOD) {
                         const d = Math.hypot(x*TILE - mx, y*TILE - my);
                         if (d < bestDist && d < 300) {
                             bestDist = d;
@@ -245,6 +242,7 @@ function updateSmartCursor() {
 function handleInput() {
     if (isInventoryOpen) return;
 
+    // Smart Cursor Override
     let tx, ty;
     if (smartCursorActive && smartTarget) {
         tx = smartTarget.x;
@@ -265,48 +263,58 @@ function handleInput() {
     const tile = world[idx];
     const cur = player.inv[player.sel];
 
-    if (mouse.l && !mouse.lastL) {
-        mouse.lastL = true;
+    // Mouse Left - Mining / Attack (With Timer for Auto-Use)
+    if (mouse.l) {
+        // If holding mouse, we act if timer is 0
+        if (player.useTimer === 0) {
 
-        if (cur.id && PROPS[cur.id] && PROPS[cur.id].tool === 'sword') {
-            entities.forEach(e => {
-                if (Math.hypot(targetPxX - (e.x+e.w/2), targetPxY - (e.y+e.h/2)) < 60) {
-                    e.hit(PROPS[cur.id].dmg, player.face);
-                }
-            });
-        }
-        else if (tile !== IDS.BEDROCK_BLOCK) {
-            const prop = PROPS[tile] || {};
-            let canMine = false;
-
-            if (cur.id && PROPS[cur.id] && PROPS[cur.id].tool) {
-                const tool = PROPS[cur.id].tool;
-                const pwr = PROPS[cur.id].pwr || 1;
-
-                if (tool === 'pick' && prop.solid) canMine = true;
-                if (tool === 'axe' && (tile === IDS.WOOD || tile === IDS.LEAVES_BLOCK || tile === IDS.WOOD_PLANKS_BLOCK)) canMine = true;
-
-                if (prop.hardness && pwr < prop.hardness) canMine = false;
-            } else {
-                if (prop.hardness <= 1) canMine = true;
+            // Attack with Sword
+            if (cur.id && PROPS[cur.id] && PROPS[cur.id].tool === 'sword') {
+                entities.forEach(e => {
+                    if (Math.hypot(targetPxX - (e.x+e.w/2), targetPxY - (e.y+e.h/2)) < 60) {
+                        e.hit(PROPS[cur.id].dmg, player.face);
+                    }
+                });
+                player.useTimer = 20; // Sword swing delay
             }
+            // Mining
+            else if (tile !== IDS.BEDROCK_BLOCK) {
+                const prop = PROPS[tile] || {};
+                let canMine = false;
 
-            if (canMine && tile !== IDS.AIR) {
-                if (tile === IDS.CHEST && chests[`${tx},${ty}`]) {
-                    spawnFloatText(targetPxX, targetPxY, "Empty chest first!");
-                    return;
+                if (cur.id && PROPS[cur.id] && PROPS[cur.id].tool) {
+                    const tool = PROPS[cur.id].tool;
+                    const pwr = PROPS[cur.id].pwr || 1;
+
+                    if (tool === 'pick' && prop.solid) canMine = true;
+                    if (tool === 'axe' && (tile === IDS.WOOD || tile === IDS.LEAVES_BLOCK || tile === IDS.WOOD_PLANKS_BLOCK)) canMine = true;
+
+                    if (prop.hardness && pwr < prop.hardness) canMine = false;
+                } else {
+                    // Hand mining (weak)
+                    if (prop.hardness <= 1) canMine = true;
                 }
-                world[idx] = IDS.AIR;
-                // Only drop loot for certain tiles
-                if (tile !== IDS.LEAVES_BLOCK && tile !== IDS.GRASS_BLOCK) {
-                    spawnLoot(targetPxX, targetPxY, tile, 1);
+
+                if (canMine && tile !== IDS.AIR) {
+                    if (tile === IDS.CHEST && chests[`${tx},${ty}`]) {
+                        spawnFloatText(targetPxX, targetPxY, "Empty chest first!");
+                        // Don't set timer here, let them try again immediately or UI feedback
+                    } else {
+                        world[idx] = IDS.AIR;
+                        if (tile !== IDS.LEAVES_BLOCK && tile !== IDS.GRASS_BLOCK) {
+                            spawnLoot(targetPxX, targetPxY, tile, 1);
+                        }
+                        spawnParticles(targetPxX, targetPxY, prop.c, 5);
+                        if (tile === IDS.CHEST) delete chests[`${tx},${ty}`];
+
+                        player.useTimer = 12; // Mining speed (lower = faster)
+                    }
                 }
-                spawnParticles(targetPxX, targetPxY, prop.c, 5);
-                if (tile === IDS.CHEST) delete chests[`${tx},${ty}`];
             }
         }
     }
 
+    // Mouse Right - Interact / Place (Single Click Only)
     if (mouse.r && !mouse.lastR) {
         mouse.lastR = true;
 
@@ -348,11 +356,7 @@ function handleInput() {
     if (!mouse.r) mouse.lastR = false;
 }
 
-// ... (Rest of file same: draw, updateUI, etc. - ensure standard variable reuse)
-// For brevity, include the rest of the original file helper functions here.
-// spawnLoot, spawnParticles, spawnFloatText, draw, updateUI, updateInv, etc.
-
-// ... (spawn functions same) ...
+// ... (Rest of UI functions same) ...
 function spawnLoot(x, y, id, n) { loot.push(new LootItem(x, y, id, n)); }
 function spawnParticles(x, y, c, n) {
     for (let i = 0; i < n; i++) particles.push({ x, y, vx: (Math.random()-0.5)*6, vy: (Math.random()-0.5)*6-2, c, life: 25+Math.floor(Math.random()*15) });
@@ -362,7 +366,6 @@ function spawnFloatText(x, y, txt, color = '#ffd700') {
     document.body.appendChild(d); setTimeout(() => d.remove(), 1200);
 }
 
-// ... (draw same, except update loop to render ores) ...
 function draw(isNight) {
     const dayCol = [135, 206, 250]; const nightCol = [15, 15, 35];
     const t = isNight ? Math.min(1, (time - 13000) / 2000) : Math.max(0, 1 - (time - 21000) / 2000);
@@ -470,7 +473,7 @@ function updateInv() {
 
 function updateCraftingList() {
     const list = document.getElementById('crafting-list'); list.innerHTML = '';
-    let stations = { [IDS.WORKBENCH]: false, [IDS.FURNACE]: false, [IDS.ANVIL]: false };
+    let stations = { [IDS.WORK_BENCH]: false, [IDS.FURNACE]: false, [IDS.IRON_ANVIL]: false };
     const px = Math.floor((player.x+player.w/2)/TILE); const py = Math.floor((player.y+player.h/2)/TILE);
     const minX = Math.max(0, px-4), maxX = Math.min(CHUNK_W-1, px+4);
     const minY = Math.max(0, py-4), maxY = Math.min(CHUNK_H-1, py+4);
@@ -576,4 +579,3 @@ initGameData().then(success => {
         loop();
     }
 });
-
