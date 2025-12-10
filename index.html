@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Terraria - Enhanced Edition</title>
+<style>
+    body {
+        margin: 0; overflow: hidden; background: #000;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        user-select: none;
+    }
+    canvas { display: block; image-rendering: pixelated; cursor: crosshair; }
+
+    #ui-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+
+    /* HUD */
+    .hud-bar {
+        position: absolute; top: 12px; right: 12px;
+        display: flex; gap: 4px; pointer-events: auto;
+        flex-direction: row-reverse;
+    }
+    .heart {
+        width: 20px; height: 20px; background: #e53935;
+        transform: rotate(45deg); position: relative;
+        border: 2px solid #b71c1c; margin: 2px;
+        box-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    .heart::before, .heart::after {
+        content: ''; position: absolute; width: 20px; height: 20px;
+        background: #e53935; border-radius: 50%;
+    }
+    .heart::before { top: -10px; left: 0; }
+    .heart::after { top: 0; left: -10px; }
+
+    /* GENERIC SLOT STYLE */
+    .slot {
+        width: 44px; height: 44px;
+        border: 2px solid #3a3a50; /* Terraria Dark Blue */
+        background: rgba(40, 40, 60, 0.85); /* Semi-transparent blue */
+        display: flex; align-items: center; justify-content: center;
+        font-size: 11px; position: relative; cursor: pointer;
+        border-radius: 4px;
+        transition: all 0.05s;
+    }
+    .slot:hover {
+        border-color: #ffd700;
+        background: rgba(60, 60, 80, 0.95);
+        transform: scale(1.05);
+    }
+    .slot.active {
+        border-color: #ffd700;
+        box-shadow: 0 0 6px rgba(255, 215, 0, 0.5);
+    }
+    .slot .count {
+        position: absolute; bottom: 2px; right: 3px;
+        font-weight: bold; text-shadow: 1px 1px 0 #000;
+        color: white; font-size: 10px; font-family: monospace;
+    }
+    .slot-icon {
+        font-size: 24px;
+        filter: drop-shadow(2px 2px 0 rgba(0,0,0,0.5));
+        line-height: 1;
+    }
+
+    /* === INVENTORY SYSTEM === */
+
+    /* Hotbar (Row 1) - Always visible at top left */
+    #hotbar-container {
+        position: absolute; top: 12px; left: 12px;
+        display: flex; gap: 4px;
+        pointer-events: auto; z-index: 50;
+    }
+
+    /* Main Inventory (Rows 2-5) - Toggled below hotbar */
+    #inventory-extension {
+        position: absolute; top: 64px; left: 12px;
+        display: none; /* Toggled */
+        pointer-events: auto; z-index: 49;
+    }
+
+    /* The grid container for the extension */
+    #inv-grid-extended {
+        display: grid; grid-template-columns: repeat(10, 1fr); gap: 4px;
+    }
+
+    /* Layout Containers for Crafting/Equip */
+    #inventory-wrapper {
+        position: relative;
+    }
+
+    /* Crafting (Left Side) */
+    #crafting-column {
+        position: absolute;
+        top: 250px; /* Below standard inv space usually */
+        left: 0px;
+        width: 300px;
+        display: flex; flex-direction: column; gap: 4px;
+        max-height: 400px; overflow-y: auto;
+        pointer-events: auto;
+    }
+
+    /* Equipment (Right Side) */
+    #equip-column {
+        position: absolute;
+        top: 0; left: 500px; /* To the right of the grid */
+        display: flex; flex-direction: column; gap: 4px;
+        width: 50px;
+    }
+
+    /* Armor Slots specific style */
+    .armor-slot {
+        background: rgba(30, 30, 40, 0.6);
+        border-color: #333;
+    }
+
+    /* --- Smart Cursor Highlight --- */
+    #smart-cursor-highlight {
+        position: absolute;
+        width: 32px; height: 32px;
+        border: 2px solid #ffd700;
+        background: rgba(255, 215, 0, 0.2);
+        pointer-events: none;
+        display: none;
+        box-sizing: border-box;
+        z-index: 10;
+        animation: pulse 1s infinite;
+    }
+    @keyframes pulse { 0% { opacity: 0.5; } 50% { opacity: 1; } 100% { opacity: 0.5; } }
+
+    /* Tooltip */
+    #item-tooltip {
+        position: absolute; pointer-events: none;
+        color: #fff; font-weight: bold; text-shadow: 1px 1px 2px #000;
+        background: rgba(0,0,0,0.6); padding: 4px 8px; border-radius: 4px;
+        border: 1px solid #555; display: none; z-index: 200;
+    }
+
+    /* Floating Item */
+    #cursor-item {
+        position: fixed; pointer-events: none; z-index: 200;
+        width: 40px; height: 40px;
+        display: none; align-items: center; justify-content: center;
+        font-size: 28px; filter: drop-shadow(4px 4px 5px rgba(0,0,0,0.5));
+        transform: translate(-50%, -50%);
+    }
+
+    /* Info */
+    #info-panel {
+        position: absolute; bottom: 10px; left: 10px;
+        color: rgba(255,255,255,0.7); font-size: 10px;
+        pointer-events: none; text-shadow: 1px 1px 0 #000;
+    }
+
+    .float-text {
+        position: absolute; color: #ffd700; font-weight: bold;
+        font-size: 14px; pointer-events: none;
+        animation: floatUp 1.2s forwards;
+        text-shadow: 2px 2px 3px #000;
+        font-family: 'Courier New', monospace;
+        z-index: 20;
+    }
+    @keyframes floatUp {
+        0% { opacity: 1; transform: translateY(0); }
+        100% { opacity: 0; transform: translateY(-40px); }
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: rgba(0,0,0,0.3); }
+    ::-webkit-scrollbar-thumb { background: #555; border-radius: 3px; }
+
+    #crafting-header { color: #ddd; font-weight: bold; margin-bottom: 5px; text-shadow: 1px 1px 0 #000; }
+</style>
+</head>
+<body>
+
+<div id="ui-layer">
+    <!-- Hearts -->
+    <div class="hud-bar" id="hearts-container"></div>
+
+    <!-- Hotbar (Always Visible) -->
+    <div id="hotbar-container"></div>
+
+    <!-- Inventory Extension (Rows 2-5, Equipment, Crafting) -->
+    <div id="inventory-extension">
+        <div id="inventory-wrapper">
+            <!-- Main Grid Rows 2-5 -->
+            <div id="inv-grid-extended"></div>
+
+            <!-- Equipment Side -->
+            <div id="equip-column">
+                <div id="armor-slots"></div>
+                <div style="color:#ddd; font-size:10px; text-align:center; margin-top:5px;" id="def-display">0 Def</div>
+            </div>
+
+            <!-- Crafting (Now below or to the side) -->
+            <div id="crafting-column">
+                <div id="crafting-header">Crafting</div>
+                <div id="crafting-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Smart Cursor Visual -->
+    <div id="smart-cursor-highlight"></div>
+
+    <!-- Tooltip -->
+    <div id="item-tooltip"></div>
+
+    <!-- Info -->
+    <div id="info-panel">
+        WASD: Move | Space: Jump | Esc: Inventory | Ctrl: Smart Cursor<br>
+        Left Click: Mine/Attack | Right Click: Interact/Place
+    </div>
+
+    <!-- Held Item -->
+    <div id="cursor-item"></div>
+</div>
+
+<canvas id="game"></canvas>
+
+<script src="data.js"></script>
+<script src="entities.js"></script>
+<script src="game.js"></script>
+</body>
+</html>
