@@ -90,7 +90,7 @@ class Entity {
 
 class Player extends Entity {
     constructor(x, y) {
-        super(x, y, 18, 44);
+        super(x, y, TILE, 3*TILE);
         this.hp = 100;
         this.maxHp = 100;
         this.inv = new Array(50).fill(null).map(() => ({id: 0, n: 0}));
@@ -226,7 +226,7 @@ class Slime extends Entity {
 
 class Zombie extends Entity {
     constructor(x, y) {
-        super(x, y, 20, 46);
+        super(x, y, TILE, 3*TILE);
         this.hp = 40;
         this.maxHp = this.hp;
         this.color = '#388e3c';

@@ -1,6 +1,6 @@
-const TILE = 32;
-const CHUNK_W = 220;
-const CHUNK_H = 100;
+const TILE = 16; // CHANGED: Smaller tiles = Bigger Field of View
+const CHUNK_W = 400; // Increased width slightly to accommodate zooming out
+const CHUNK_H = 200; // Increased height
 const GRAVITY = 0.42;
 const TERM_VEL = 14;
 const PLAYER_REACH = 180;
@@ -196,6 +196,9 @@ async function initGameData() {
             }
             RECIPES.push({ out: outId, n: quantity, cost: cost, req: req });
         });
+
+        IDS.LEAVES = 9002;
+        PROPS[9002] = { name: "Leaves", c: '#33691e', solid: 0, hardness: 0, icon: '🍃' }; // Solid 0 for pass-through
 
         console.log("Data loaded!", { IDS_COUNT: Object.keys(IDS).length });
         return true;

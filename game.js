@@ -38,21 +38,24 @@ function initWorld() {
     generateOre(IDS.IRON_ORE, 40, 0.6);
     generateOre(IDS.GOLD_ORE, 25, 0.7);
 
-    // 3. Trees
+// 3. Trees (Updated with Leaves)
     for (let x = 0; x < CHUNK_W; x++) {
         const h = getGroundHeight(x);
         if (x > 15 && x < CHUNK_W - 15 && Math.random() < 0.08) {
-             const treeHeight = 5 + Math.floor(Math.random() * 5);
+             const treeHeight = 5 + Math.floor(Math.random() * 8);
+             // Trunk
              for (let i = 1; i <= treeHeight; i++) {
                  if (h - i >= 0) world[(h - i) * CHUNK_W + x] = IDS.WOOD;
              }
+             // Leaves
              const leafTop = h - treeHeight;
-             for (let ly = leafTop - 2; ly <= leafTop; ly++) {
+             for (let ly = leafTop - 2; ly <= leafTop + 1; ly++) {
                  for (let lx = x - 2; lx <= x + 2; lx++) {
                      if (lx >= 0 && lx < CHUNK_W && ly >= 0 && ly < CHUNK_H) {
                          const dist = Math.abs(lx - x) + Math.abs(ly - leafTop);
+                         // Don't overwrite wood, only air
                          if (dist <= 2 && world[ly * CHUNK_W + lx] === IDS.AIR) {
-                             world[ly * CHUNK_W + lx] = IDS.LEAVES_BLOCK;
+                             world[ly * CHUNK_W + lx] = IDS.LEAVES;
                          }
                      }
                  }
@@ -237,6 +240,50 @@ function updateSmartCursor() {
     } else {
         hl.style.display = 'none';
     }
+}
+
+function chopTree(tx, ty) {
+    let y = ty;
+    // Go down to find root (optional, but standard terraria chops from hit point upwards)
+    // For this simple version, we chop UP from where we hit.
+
+    // Check if we hit the bottom or middle.
+    // If you chop the middle, the top falls.
+
+    let count = 0;
+
+    // Destroy Wood Column going UP
+    for(let cy = ty; cy >= 0; cy--) {
+        const idx = cy * CHUNK_W + tx;
+        if(world[idx] === IDS.WOOD) {
+            world[idx] = IDS.AIR;
+            spawnParticles(tx*TILE+TILE/2, cy*TILE+TILE/2, '#6d4c41', 5);
+            count++;
+
+            // Check for leaves around this wood block
+            for(let ly = cy - 2; ly <= cy + 2; ly++) {
+                for(let lx = tx - 2; lx <= tx + 2; lx++) {
+                    const lidx = ly * CHUNK_W + lx;
+                    if(world[lidx] === IDS.LEAVES_BLOCK) {
+                        world[lidx] = IDS.AIR;
+                        spawnParticles(lx*TILE+TILE/2, ly*TILE+TILE/2, '#33691e', 3);
+                    }
+                }
+            }
+        } else {
+            // Stop if we hit something else (air or other block)
+            // But check if it was leaves (top of tree)
+            if(world[idx] === IDS.LEAVES_BLOCK) {
+                 world[idx] = IDS.AIR;
+                 spawnParticles(tx*TILE+TILE/2, cy*TILE+TILE/2, '#33691e', 3);
+            }
+            // If it's not wood, we stop tracing up
+            if(world[idx] !== IDS.LEAVES_BLOCK) break;
+        }
+    }
+
+    // Give all the wood at the bottom/hit point
+    if(count > 0) spawnLoot(tx*TILE+TILE/2, ty*TILE, IDS.WOOD, count * 4); // generous wood drop
 }
 
 function handleInput() {
