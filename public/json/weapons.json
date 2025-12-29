@@ -1,0 +1,3952 @@
+[
+    {
+        "NAME": "Zenith",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Moonlord",
+        "DPS (SINGLE TARGET)": 4800,
+        "DPS (MULTI TARGET)": 13000,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Last Prism",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-Moonlord",
+        "DPS (SINGLE TARGET)": 3657,
+        "DPS (MULTI TARGET)": 1142,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Fully charged"
+    },
+    {
+        "NAME": "Star Wrath",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Moonlord",
+        "DPS (SINGLE TARGET)": 2700,
+        "DPS (MULTI TARGET)": 5800,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": 1500,
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": 3700,
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Terrarian",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Moonlord",
+        "DPS (SINGLE TARGET)": 2200,
+        "DPS (MULTI TARGET)": 4600,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": 700,
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": 1000,
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Mewomere",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Moonlord",
+        "DPS (SINGLE TARGET)": 2100,
+        "DPS (MULTI TARGET)": 6400,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": 1300,
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": 3400,
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Lunar Flare",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-Moonlord",
+        "DPS (SINGLE TARGET)": 1974,
+        "DPS (MULTI TARGET)": 5543,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Celebration Mk.2",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Moonlord",
+        "DPS (SINGLE TARGET)": 1709,
+        "DPS (MULTI TARGET)": 2821,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "If all rockets hit"
+    },
+    {
+        "NAME": "Solar Eruption",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Cultist",
+        "DPS (SINGLE TARGET)": 1500,
+        "DPS (MULTI TARGET)": 4300,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Close to target"
+    },
+    {
+        "NAME": "Bubble Gun",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 1467,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Starlight",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-EoL",
+        "DPS (SINGLE TARGET)": 1300,
+        "DPS (MULTI TARGET)": 4000,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "S.D.M.G",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Moonlord",
+        "DPS (SINGLE TARGET)": 1256,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Nebula Arcanum",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-Cultist",
+        "DPS (SINGLE TARGET)": 1254,
+        "DPS (MULTI TARGET)": 2183,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Laser Machine Gun",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-Golem",
+        "DPS (SINGLE TARGET)": 1210,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Flying Dragon",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 1200,
+        "DPS (MULTI TARGET)": 3100,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": 600,
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": 2100,
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Daybreak",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Cultist",
+        "DPS (SINGLE TARGET)": 1100,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not Pierce"
+    },
+    {
+        "NAME": "Nebula Blaze",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-Cultist",
+        "DPS (SINGLE TARGET)": 1094,
+        "DPS (MULTI TARGET)": 2123,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Razor Pine",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 1067,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Stellar Tune",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-EoL",
+        "DPS (SINGLE TARGET)": 1056,
+        "DPS (MULTI TARGET)": 3073,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Vortex Beater",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Cultist",
+        "DPS (SINGLE TARGET)": 976,
+        "DPS (MULTI TARGET)": 1060,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "If all bullets  hit"
+    },
+    {
+        "NAME": "Charged Blaster Cannon",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-Golem",
+        "DPS (SINGLE TARGET)": 949,
+        "DPS (MULTI TARGET)": 2620,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Full charge"
+    },
+    {
+        "NAME": "Nightglow",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-EoL",
+        "DPS (SINGLE TARGET)": 914,
+        "DPS (MULTI TARGET)": 914,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Sky Dragon's Fury",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 800,
+        "DPS (MULTI TARGET)": 3200,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": 600,
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": 1200,
+        "OBSERVATIONS": "Proyectiles"
+    },
+    {
+        "NAME": "Eventide",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-EoL",
+        "DPS (SINGLE TARGET)": 779,
+        "DPS (MULTI TARGET)": 2133,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Phantasm",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Cultist",
+        "DPS (SINGLE TARGET)": 752,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "If all arrows hit"
+    },
+    {
+        "NAME": "Blizzard Staff",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 750,
+        "DPS (MULTI TARGET)": 1200,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Tsunami",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 742,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "If all arrows hit, is post wof because it can be obtained from duke at start of hm"
+    },
+    {
+        "NAME": "Christmas Tree Sword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 720,
+        "DPS (MULTI TARGET)": 1200,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": 600,
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": 1100,
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Terra Blade",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 700,
+        "DPS (MULTI TARGET)": 1400,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": 400,
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": 850,
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Xenopopper",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Golem",
+        "DPS (SINGLE TARGET)": 691,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Seedler",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 650,
+        "DPS (MULTI TARGET)": 1100,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": 400,
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": 600,
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "The Eye of Cthulhu",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 650,
+        "DPS (MULTI TARGET)": 1000,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Betsy's Wrath",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-Golem",
+        "DPS (SINGLE TARGET)": 635,
+        "DPS (MULTI TARGET)": 2224,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Nail Gun",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 633,
+        "DPS (MULTI TARGET)": 1246,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Electrosphere Launcher",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Golem",
+        "DPS (SINGLE TARGET)": 614,
+        "DPS (MULTI TARGET)": 1888,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Jack 'O Lantern Launcher",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 613,
+        "DPS (MULTI TARGET)": 1348,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Bat Scepter",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 600,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Influx Waver",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 600,
+        "DPS (MULTI TARGET)": 1300,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": 500,
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not Pierce"
+    },
+    {
+        "NAME": "Kraken",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 600,
+        "DPS (MULTI TARGET)": 700,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Psycho Knife",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 600,
+        "DPS (MULTI TARGET)": 2000,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Stake Launcher",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 599,
+        "DPS (MULTI TARGET)": 1534,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Chain Gun",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 590,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "If all bullets hit"
+    },
+    {
+        "NAME": "Stardust Dragon Staff",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-Cultist",
+        "DPS (SINGLE TARGET)": 580,
+        "DPS (MULTI TARGET)": 1700,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Aerial Bane",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 564,
+        "DPS (MULTI TARGET)": 2732,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "If all arrows hit"
+    },
+    {
+        "NAME": "Piranha Gun",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 553,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce, if all piranhas hit"
+    },
+    {
+        "NAME": "Elf Melter",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 530,
+        "DPS (MULTI TARGET)": 1446,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Vampire Knives",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 520,
+        "DPS (MULTI TARGET)": 520,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Heat Ray",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-Golem",
+        "DPS (SINGLE TARGET)": 512,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Tactical Shotgun",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 507,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "If all pellets hit"
+    },
+    {
+        "NAME": "Fetid Baghnakhs",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 500,
+        "DPS (MULTI TARGET)": 1500,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Flairon",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 500,
+        "DPS (MULTI TARGET)": 500,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not Pierce"
+    },
+    {
+        "NAME": "Paladin's Hammer",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 500,
+        "DPS (MULTI TARGET)": 1200,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Spectre Staff",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 500,
+        "DPS (MULTI TARGET)": 520,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Valkyrie Yoyo",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Destroyer",
+        "DPS (SINGLE TARGET)": 500,
+        "DPS (MULTI TARGET)": 600,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Venom Staff",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 460,
+        "DPS (MULTI TARGET)": 1100,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Keybrand",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 450,
+        "DPS (MULTI TARGET)": 950,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Razonblade Typhoon",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 450,
+        "DPS (MULTI TARGET)": 1600,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Snowman Cannon",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 444,
+        "DPS (MULTI TARGET)": 1636,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Sniper Rifle",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 431,
+        "DPS (MULTI TARGET)": 1281,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Leaf Blower",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-Golem",
+        "DPS (SINGLE TARGET)": 428,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Candy Corn Rifle",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 425,
+        "DPS (MULTI TARGET)": 1152,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Kaleidoscope",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-EoL",
+        "DPS (SINGLE TARGET)": 420,
+        "DPS (MULTI TARGET)": 1200,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Resonance Scepter",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 410,
+        "DPS (MULTI TARGET)": 1050,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Venus Magnum",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 406,
+        "DPS (MULTI TARGET)": 1096,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Possessed Hatchet",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Golem",
+        "DPS (SINGLE TARGET)": 400,
+        "DPS (MULTI TARGET)": 1000,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Red's Throw",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Destroyer",
+        "DPS (SINGLE TARGET)": 400,
+        "DPS (MULTI TARGET)": 500,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "The Horseman's Blade",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 400,
+        "DPS (MULTI TARGET)": 1200,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Without projectiles"
+    },
+    {
+        "NAME": "Toxic Flask",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 398,
+        "DPS (MULTI TARGET)": 984,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Rocket Launcher",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 385,
+        "DPS (MULTI TARGET)": 957,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Stynger",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Golem",
+        "DPS (SINGLE TARGET)": 383,
+        "DPS (MULTI TARGET)": 1030,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Flamethrower",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-SkeletronPrime",
+        "DPS (SINGLE TARGET)": 365,
+        "DPS (MULTI TARGET)": 903,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Super Star Shooter",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-SkeletronPrime",
+        "DPS (SINGLE TARGET)": 363,
+        "DPS (MULTI TARGET)": 1140,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Dark Harvest",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 350,
+        "DPS (MULTI TARGET)": 950,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Death Sickle",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-SkeletronPrime",
+        "DPS (SINGLE TARGET)": 350,
+        "DPS (MULTI TARGET)": 900,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": 300,
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": 750,
+        "OBSERVATIONS": "Only 2 Dummies"
+    },
+    {
+        "NAME": "Rainbow Crystal Staff",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-Moonlord",
+        "DPS (SINGLE TARGET)": 350,
+        "DPS (MULTI TARGET)": 1000,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Tome of Infinite Wisdom",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-Destroyer",
+        "DPS (SINGLE TARGET)": 350,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Magnet Sphere",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-SkeletronPrime",
+        "DPS (SINGLE TARGET)": 333,
+        "DPS (MULTI TARGET)": 334,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Grenade Launcher",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 330,
+        "DPS (MULTI TARGET)": 1055,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Meteor Staff",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 330,
+        "DPS (MULTI TARGET)": 850,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Ghastly Glaive",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Destroyer",
+        "DPS (SINGLE TARGET)": 320,
+        "DPS (MULTI TARGET)": 1000,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Unholy Trident",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 315,
+        "DPS (MULTI TARGET)": 942,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Onyx Blaster",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 312,
+        "DPS (MULTI TARGET)": 456,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "If all pellets hit"
+    },
+    {
+        "NAME": "Anchor",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 300,
+        "DPS (MULTI TARGET)": 400,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Only 2 Dummies"
+    },
+    {
+        "NAME": "Arkhalis",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Destroyer",
+        "DPS (SINGLE TARGET)": 300,
+        "DPS (MULTI TARGET)": 920,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Breaker Blade",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 300,
+        "DPS (MULTI TARGET)": 800,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Chlorophyte Saber",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-SkeletronPrime",
+        "DPS (SINGLE TARGET)": 300,
+        "DPS (MULTI TARGET)": 750,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": 150,
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": 650,
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Chlorophyte Shotbow",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-SkeletronPrime",
+        "DPS (SINGLE TARGET)": 300,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce, if all arrows hit"
+    },
+    {
+        "NAME": "Cholrophyte Claymore",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-SkeletronPrime",
+        "DPS (SINGLE TARGET)": 300,
+        "DPS (MULTI TARGET)": 1000,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": 70,
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": 250,
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Code 2",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Destroyer",
+        "DPS (SINGLE TARGET)": 300,
+        "DPS (MULTI TARGET)": 500,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Drippler Crippler",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 300,
+        "DPS (MULTI TARGET)": 800,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": 80,
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": 150,
+        "OBSERVATIONS": "Only 2 Dummies"
+    },
+    {
+        "NAME": "Flower Pow",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 300,
+        "DPS (MULTI TARGET)": 1100,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Golem Fist",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Golem",
+        "DPS (SINGLE TARGET)": 300,
+        "DPS (MULTI TARGET)": 1000,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not Pierce"
+    },
+    {
+        "NAME": "Gungnir",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Destroyer",
+        "DPS (SINGLE TARGET)": 300,
+        "DPS (MULTI TARGET)": 900,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Light Disc",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Destroyer",
+        "DPS (SINGLE TARGET)": 300,
+        "DPS (MULTI TARGET)": 750,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Morning Star",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 300,
+        "DPS (MULTI TARGET)": 850,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "North Pole",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 300,
+        "DPS (MULTI TARGET)": 750,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": 250,
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": 650,
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Sleepy Octopod",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Destroyer",
+        "DPS (SINGLE TARGET)": 300,
+        "DPS (MULTI TARGET)": 1000,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "True Night's Edge",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-SkeletronPrime",
+        "DPS (SINGLE TARGET)": 300,
+        "DPS (MULTI TARGET)": 450,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": 150,
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": 200,
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Yelets",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Destroyer",
+        "DPS (SINGLE TARGET)": 300,
+        "DPS (MULTI TARGET)": 400,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Megashark",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Destroyer",
+        "DPS (SINGLE TARGET)": 292,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Wasp Gun",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 286,
+        "DPS (MULTI TARGET)": 769,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Pulse Bow",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-SkeletronPrime",
+        "DPS (SINGLE TARGET)": 282,
+        "DPS (MULTI TARGET)": 771,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Spirit Flame",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 281,
+        "DPS (MULTI TARGET)": 323,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Celebration",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Golem",
+        "DPS (SINGLE TARGET)": 280,
+        "DPS (MULTI TARGET)": 842,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "If all rockets hit"
+    },
+    {
+        "NAME": "Crystal Storm",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 280,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Sky Fracture",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 280,
+        "DPS (MULTI TARGET)": 330,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Staff of Earth",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-Golem",
+        "DPS (SINGLE TARGET)": 280,
+        "DPS (MULTI TARGET)": 840,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Star Cannon",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 280,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Is Pre-Boss because it can be obtained from 1 blood/shadow orb"
+    },
+    {
+        "NAME": "Toxikarp",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 272,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Rainbow Gun",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 271,
+        "DPS (MULTI TARGET)": 824,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Brand of the Inferno",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 270,
+        "DPS (MULTI TARGET)": 900,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Clinger Staff",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 270,
+        "DPS (MULTI TARGET)": 520,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Shadowbeam Staff",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 270,
+        "DPS (MULTI TARGET)": 750,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Waffle's Iron",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-SkeletronPrime",
+        "DPS (SINGLE TARGET)": 270,
+        "DPS (MULTI TARGET)": 550,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": 150,
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Uzi",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 260,
+        "DPS (MULTI TARGET)": 630,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Magical Harp",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-Twins",
+        "DPS (SINGLE TARGET)": 254,
+        "DPS (MULTI TARGET)": 712,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Poison Staff",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 254,
+        "DPS (MULTI TARGET)": 732,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Bananarang",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 250,
+        "DPS (MULTI TARGET)": 750,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Chain Guillotines",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 250,
+        "DPS (MULTI TARGET)": 500,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Only 2 Dummies"
+    },
+    {
+        "NAME": "Gatlingator",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 250,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Bought from the travelling in hm"
+    },
+    {
+        "NAME": "Ice Sickle",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 250,
+        "DPS (MULTI TARGET)": 450,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": 300,
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": 350,
+        "OBSERVATIONS": "Only Pierces 2 Dummies"
+    },
+    {
+        "NAME": "Mushroom Spear",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Destroyer",
+        "DPS (SINGLE TARGET)": 250,
+        "DPS (MULTI TARGET)": 750,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Nettle Burst",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 250,
+        "DPS (MULTI TARGET)": 670,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Obsidian Swordfish",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 250,
+        "DPS (MULTI TARGET)": 1100,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "True Excalibur",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 250,
+        "DPS (MULTI TARGET)": 800,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Phantom Phoenix",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Destroyer",
+        "DPS (SINGLE TARGET)": 242,
+        "DPS (MULTI TARGET)": 370,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Adamantite Glaive",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 240,
+        "DPS (MULTI TARGET)": 500,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Chlorophyte Partisan",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-SkeletronPrime",
+        "DPS (SINGLE TARGET)": 240,
+        "DPS (MULTI TARGET)": 800,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": 300,
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": 880,
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Quad-Barrel Shotgun",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Skeletron",
+        "DPS (SINGLE TARGET)": 240,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Titanium Trident",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 240,
+        "DPS (MULTI TARGET)": 540,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Nimbus Rod",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 237,
+        "DPS (MULTI TARGET)": 342,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Can hit 2 dummies"
+    },
+    {
+        "NAME": "Magic Dagger",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 223,
+        "DPS (MULTI TARGET)": 621,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Pierces 2 dummies"
+    },
+    {
+        "NAME": "Chik",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 220,
+        "DPS (MULTI TARGET)": 270,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Cursed Flame",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 220,
+        "DPS (MULTI TARGET)": 443,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Pierces 2 dummies"
+    },
+    {
+        "NAME": "Cutlass",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 220,
+        "DPS (MULTI TARGET)": 600,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Dao of Pow",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 220,
+        "DPS (MULTI TARGET)": 850,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Demon Scythe",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 220,
+        "DPS (MULTI TARGET)": 400,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Frostbrand",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 220,
+        "DPS (MULTI TARGET)": 540,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": 80,
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": 250,
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Mythril Halberd",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 220,
+        "DPS (MULTI TARGET)": 450,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Orichalcum Halber",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 220,
+        "DPS (MULTI TARGET)": 580,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Inferno Fork",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 218,
+        "DPS (MULTI TARGET)": 923,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Book of skulls",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-Skeletron",
+        "DPS (SINGLE TARGET)": 210,
+        "DPS (MULTI TARGET)": 230,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Orange Zapinator",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 210,
+        "DPS (MULTI TARGET)": 608,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Difficult to read due to nature"
+    },
+    {
+        "NAME": "Palladium Pike",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 210,
+        "DPS (MULTI TARGET)": 530,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Shadowflame Knife",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 210,
+        "DPS (MULTI TARGET)": 350,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Terragrim",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 210,
+        "DPS (MULTI TARGET)": 620,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Ice Rod",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 206,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Ice Bow",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 203,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Shotgun",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 203,
+        "DPS (MULTI TARGET)": 203,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "If all pellets hit"
+    },
+    {
+        "NAME": "Shadowflame Bow",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 202,
+        "DPS (MULTI TARGET)": 526,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Inflicts shadowflame"
+    },
+    {
+        "NAME": "Hallowed Reapeter",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Destroyer",
+        "DPS (SINGLE TARGET)": 201,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Adamantite Sword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 200,
+        "DPS (MULTI TARGET)": 550,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Amarok",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 200,
+        "DPS (MULTI TARGET)": 230,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Only 2 Dummies"
+    },
+    {
+        "NAME": "Beam Sword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 200,
+        "DPS (MULTI TARGET)": 550,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": 80,
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not Pierce"
+    },
+    {
+        "NAME": "Clockwork Assault Rifle",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 200,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Excalibur",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Destroyer",
+        "DPS (SINGLE TARGET)": 200,
+        "DPS (MULTI TARGET)": 700,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Format:C",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 200,
+        "DPS (MULTI TARGET)": 250,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Frost Staff",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 200,
+        "DPS (MULTI TARGET)": 380,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Gradient",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 200,
+        "DPS (MULTI TARGET)": 200,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Hel-Fire",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 200,
+        "DPS (MULTI TARGET)": 250,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Only 2 Dummies"
+    },
+    {
+        "NAME": "KO Cannon",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 200,
+        "DPS (MULTI TARGET)": 420,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Only 2 Dummies"
+    },
+    {
+        "NAME": "Scourge of the Corruptor",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 200,
+        "DPS (MULTI TARGET)": 220,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not Pierce"
+    },
+    {
+        "NAME": "Slap Hand",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 200,
+        "DPS (MULTI TARGET)": 500,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Marrow",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 197,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Dark Lance",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Skeletron",
+        "DPS (SINGLE TARGET)": 190,
+        "DPS (MULTI TARGET)": 400,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Life Drain",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 190,
+        "DPS (MULTI TARGET)": 560,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Rainbow Rod",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-Twins",
+        "DPS (SINGLE TARGET)": 190,
+        "DPS (MULTI TARGET)": 400,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Shadowflame Hex Doll",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 182,
+        "DPS (MULTI TARGET)": 572,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Bladetongue",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 180,
+        "DPS (MULTI TARGET)": 550,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Spits Ichor"
+    },
+    {
+        "NAME": "Cobalt Naginata",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 180,
+        "DPS (MULTI TARGET)": 400,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Flower of Frost",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 180,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Ham Bat",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 180,
+        "DPS (MULTI TARGET)": 530,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Orichalcum Sword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 180,
+        "DPS (MULTI TARGET)": 450,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Phasesaber",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 180,
+        "DPS (MULTI TARGET)": 570,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Titanium Repeater",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 172,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Durendal",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-Destroyer",
+        "DPS (SINGLE TARGET)": 170,
+        "DPS (MULTI TARGET)": 450,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Lunar Portal Staff",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-Moonlord",
+        "DPS (SINGLE TARGET)": 170,
+        "DPS (MULTI TARGET)": 600,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Blood Thorn",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 165,
+        "DPS (MULTI TARGET)": 302,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Medusa Head",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 164,
+        "DPS (MULTI TARGET)": 492,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Short Range"
+    },
+    {
+        "NAME": "Adamantite Repeater",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 163,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Phoenix Blaster",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Skeletron",
+        "DPS (SINGLE TARGET)": 162,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Crystal Vile Shard",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 161,
+        "DPS (MULTI TARGET)": 481,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Ballista Staff",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-Golem",
+        "DPS (SINGLE TARGET)": 160,
+        "DPS (MULTI TARGET)": 420,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Mythril Sword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 160,
+        "DPS (MULTI TARGET)": 450,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Sunfury",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Skeletron",
+        "DPS (SINGLE TARGET)": 160,
+        "DPS (MULTI TARGET)": 450,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Proximity Mine Launcher",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 152,
+        "DPS (MULTI TARGET)": 664,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Orichalcum Repeater",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 151,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Cool Whip",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 150,
+        "DPS (MULTI TARGET)": 350,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": 35,
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": 75,
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Desert Tiger Staff",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 150,
+        "DPS (MULTI TARGET)": 340,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Flower of Fire",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-Skeletron",
+        "DPS (SINGLE TARGET)": 150,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Lasser Rifle",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 150,
+        "DPS (MULTI TARGET)": 470,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Sergeant United Shield",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 150,
+        "DPS (MULTI TARGET)": 400,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Titanium Sword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 150,
+        "DPS (MULTI TARGET)": 550,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Daedalus Stormbow",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 145,
+        "DPS (MULTI TARGET)": 360,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Difficult measure"
+    },
+    {
+        "NAME": "Cobalt Sword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 140,
+        "DPS (MULTI TARGET)": 400,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Terraprisma",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-EoL",
+        "DPS (SINGLE TARGET)": 140,
+        "DPS (MULTI TARGET)": 490,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "If daylight"
+    },
+    {
+        "NAME": "Boomstick",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 132,
+        "DPS (MULTI TARGET)": 132,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "If all pellets hit, Does not pierce"
+    },
+    {
+        "NAME": "Blue Moon",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Skeletron",
+        "DPS (SINGLE TARGET)": 130,
+        "DPS (MULTI TARGET)": 400,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Cascade",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Skeletron",
+        "DPS (SINGLE TARGET)": 130,
+        "DPS (MULTI TARGET)": 130,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Combat Wrench",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Skeletron",
+        "DPS (SINGLE TARGET)": 130,
+        "DPS (MULTI TARGET)": 450,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Flamarang",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Brain/Worm",
+        "DPS (SINGLE TARGET)": 130,
+        "DPS (MULTI TARGET)": 180,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Flying Knife",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 130,
+        "DPS (MULTI TARGET)": 450,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Handgun",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Skeletron",
+        "DPS (SINGLE TARGET)": 130,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Palladium Sword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 130,
+        "DPS (MULTI TARGET)": 400,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Starfury",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 130,
+        "DPS (MULTI TARGET)": 260,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": 50,
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": 110,
+        "OBSERVATIONS": "Only 2 Dummies"
+    },
+    {
+        "NAME": "Mythril Repeater",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 128,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Hellwing Bow",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Skeletron",
+        "DPS (SINGLE TARGET)": 120,
+        "DPS (MULTI TARGET)": 320,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Pearlwood Sword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 120,
+        "DPS (MULTI TARGET)": 370,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Valor",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Skeletron",
+        "DPS (SINGLE TARGET)": 120,
+        "DPS (MULTI TARGET)": 150,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "The Bee's Knees",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-QueenBee",
+        "DPS (SINGLE TARGET)": 117,
+        "DPS (MULTI TARGET)": 190,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Damage does not take the bees follow up damage into consideration"
+    },
+    {
+        "NAME": "Palladium repeater",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 116,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Sandgun",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 113,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Bone",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Skeletron",
+        "DPS (SINGLE TARGET)": 112,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Bladed Glove",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 110,
+        "DPS (MULTI TARGET)": 350,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Dart Rifle",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 110,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Golden Shower",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 110,
+        "DPS (MULTI TARGET)": 336,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Inflicts Ichor"
+    },
+    {
+        "NAME": "Harpoon",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 110,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Is Pre-Boss because it can be obtained from 1 blood/shadow orb"
+    },
+    {
+        "NAME": "Hive-Five",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-QueenBee",
+        "DPS (SINGLE TARGET)": 110,
+        "DPS (MULTI TARGET)": 130,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Molten Fury",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Skeletron",
+        "DPS (SINGLE TARGET)": 110,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Night's Edge",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-SkeletronPrime",
+        "DPS (SINGLE TARGET)": 110,
+        "DPS (MULTI TARGET)": 310,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Staff of the Frost Hydra",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 110,
+        "DPS (MULTI TARGET)": 300,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Storm Spear",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 110,
+        "DPS (MULTI TARGET)": 200,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": 50,
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not Pierce"
+    },
+    {
+        "NAME": "Swordfish",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 110,
+        "DPS (MULTI TARGET)": 240,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Xeno Staff",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-Golem",
+        "DPS (SINGLE TARGET)": 110,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Cobalt repeater",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 107,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Pew-matic Horn",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Deerclops",
+        "DPS (SINGLE TARGET)": 104,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Minishark",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 102,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Bee Keeper",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-QueenBee",
+        "DPS (SINGLE TARGET)": 100,
+        "DPS (MULTI TARGET)": 280,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Flamelash",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-Skeletron",
+        "DPS (SINGLE TARGET)": 100,
+        "DPS (MULTI TARGET)": 180,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Phaseblade",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 100,
+        "DPS (MULTI TARGET)": 250,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Stardust Cell Staff",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-Cultist",
+        "DPS (SINGLE TARGET)": 100,
+        "DPS (MULTI TARGET)": 300,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Tempest Staff",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 100,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Thorn Chakram",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 100,
+        "DPS (MULTI TARGET)": 280,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Bee Gun",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-QueenBee",
+        "DPS (SINGLE TARGET)": 95,
+        "DPS (MULTI TARGET)": 270,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Dart Pistol",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 90,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Enchanted Sword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 90,
+        "DPS (MULTI TARGET)": 220,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": 30,
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not Pierce"
+    },
+    {
+        "NAME": "Explosive Trap Staff",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-Golem",
+        "DPS (SINGLE TARGET)": 90,
+        "DPS (MULTI TARGET)": 245,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Firecracker",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 90,
+        "DPS (MULTI TARGET)": 200,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Gladius",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 90,
+        "DPS (MULTI TARGET)": 200,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Gray Zapinator",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-Eye",
+        "DPS (SINGLE TARGET)": 90,
+        "DPS (MULTI TARGET)": 120,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Difficult to measure"
+    },
+    {
+        "NAME": "Frost Daggerfish",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 86,
+        "DPS (MULTI TARGET)": 256,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Revolver",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 86,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Is Pre-Boss because it can be obtained after 1 blood/shadow orb has been broken"
+    },
+    {
+        "NAME": "Code 1",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Eye",
+        "DPS (SINGLE TARGET)": 85,
+        "DPS (MULTI TARGET)": 110,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Amazon",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 80,
+        "DPS (MULTI TARGET)": 80,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Bloody Machete",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 80,
+        "DPS (MULTI TARGET)": 160,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Only 2 Dummies"
+    },
+    {
+        "NAME": "Deadly Sphere Staff",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-SkeletronPrime",
+        "DPS (SINGLE TARGET)": 80,
+        "DPS (MULTI TARGET)": 320,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Falcon Blade",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 80,
+        "DPS (MULTI TARGET)": 220,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Fruitcake Chakram",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 80,
+        "DPS (MULTI TARGET)": 80,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Musket",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 80,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Is Pre-Boss because it can be obtained from 1 blood/shadow orb"
+    },
+    {
+        "NAME": "Optic Staff",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-Twins",
+        "DPS (SINGLE TARGET)": 80,
+        "DPS (MULTI TARGET)": 280,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Paintball Gun",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 80,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Raven Staff",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 80,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Spider Staff",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 80,
+        "DPS (MULTI TARGET)": 230,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "The Undertaker",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 80,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Is Pre-Boss because it can be obtained from 1 blood/shadow orb"
+    },
+    {
+        "NAME": "Flintlock Pistol",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 76,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Muramasa",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Skeletron",
+        "DPS (SINGLE TARGET)": 75,
+        "DPS (MULTI TARGET)": 250,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Water Bolt",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-Skeletron",
+        "DPS (SINGLE TARGET)": 72,
+        "DPS (MULTI TARGET)": 282,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "It can be obtained in pre boss, but normally post skeletron"
+    },
+    {
+        "NAME": "Aqua Scepter",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-Skeletron",
+        "DPS (SINGLE TARGET)": 71,
+        "DPS (MULTI TARGET)": 221,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Ball O' Hurt",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 70,
+        "DPS (MULTI TARGET)": 200,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Blade of Grass",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 70,
+        "DPS (MULTI TARGET)": 180,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Chain Knife",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 70,
+        "DPS (MULTI TARGET)": 140,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Only 2 Dummies"
+    },
+    {
+        "NAME": "Crimson Rod",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 70,
+        "DPS (MULTI TARGET)": 100,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Gold Shortsword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 70,
+        "DPS (MULTI TARGET)": 190,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Ice Blade",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 70,
+        "DPS (MULTI TARGET)": 180,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": 40,
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Platinum Shortsword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 70,
+        "DPS (MULTI TARGET)": 240,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Spinal Tap",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-Skeletron",
+        "DPS (SINGLE TARGET)": 70,
+        "DPS (MULTI TARGET)": 215,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "The Meatball",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Eye",
+        "DPS (SINGLE TARGET)": 70,
+        "DPS (MULTI TARGET)": 240,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Vampire Frog Staff",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 70,
+        "DPS (MULTI TARGET)": 200,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Ballista Cane",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-Destroyer",
+        "DPS (SINGLE TARGET)": 65,
+        "DPS (MULTI TARGET)": 200,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Classy Cane",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 65,
+        "DPS (MULTI TARGET)": 180,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Exotic Scimitar",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 65,
+        "DPS (MULTI TARGET)": 190,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Light's Bane",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Eye",
+        "DPS (SINGLE TARGET)": 65,
+        "DPS (MULTI TARGET)": 160,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Lightning Aura Staff",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-Golem",
+        "DPS (SINGLE TARGET)": 65,
+        "DPS (MULTI TARGET)": 200,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Pygmy Staff",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-Plantera",
+        "DPS (SINGLE TARGET)": 65,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Queen Spider Staff",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 65,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Ruler",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 65,
+        "DPS (MULTI TARGET)": 220,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Shroomerang",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 65,
+        "DPS (MULTI TARGET)": 90,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Space Gun",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 65,
+        "DPS (MULTI TARGET)": 200,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Stylish Scissors",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 65,
+        "DPS (MULTI TARGET)": 210,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Trimarang",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 65,
+        "DPS (MULTI TARGET)": 120,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Star Anise",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 64,
+        "DPS (MULTI TARGET)": 188,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Magic Missile",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-Skeletron",
+        "DPS (SINGLE TARGET)": 63,
+        "DPS (MULTI TARGET)": 185,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Bone Throwing Knife",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 62,
+        "DPS (MULTI TARGET)": 208,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Artery",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Eye",
+        "DPS (SINGLE TARGET)": 60,
+        "DPS (MULTI TARGET)": 80,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Flameburst Staff",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-Golem",
+        "DPS (SINGLE TARGET)": 60,
+        "DPS (MULTI TARGET)": 115,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Only two dummies"
+    },
+    {
+        "NAME": "Ice Boomerang",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 60,
+        "DPS (MULTI TARGET)": 70,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Katana",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 60,
+        "DPS (MULTI TARGET)": 170,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Malaise",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Eye",
+        "DPS (SINGLE TARGET)": 60,
+        "DPS (MULTI TARGET)": 70,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Mandible Blade",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 60,
+        "DPS (MULTI TARGET)": 160,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Pirate Staff",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 60,
+        "DPS (MULTI TARGET)": 165,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Purple Clubberfish",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 60,
+        "DPS (MULTI TARGET)": 180,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Rockfish",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 60,
+        "DPS (MULTI TARGET)": 180,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Snowball Cannon",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 60,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "The Rotted Fork",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Eye",
+        "DPS (SINGLE TARGET)": 60,
+        "DPS (MULTI TARGET)": 200,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Tungsten Shortsword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 60,
+        "DPS (MULTI TARGET)": 160,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Vilethorn",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 60,
+        "DPS (MULTI TARGET)": 200,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Volcano",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Brain/Worm",
+        "DPS (SINGLE TARGET)": 60,
+        "DPS (MULTI TARGET)": 180,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Poisoned Knife",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 56,
+        "DPS (MULTI TARGET)": 123,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Only two dummies"
+    },
+    {
+        "NAME": "Diamond Staff",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 55,
+        "DPS (MULTI TARGET)": 131,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Pierces 2 dummies"
+    },
+    {
+        "NAME": "Tentacle Spike",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 55,
+        "DPS (MULTI TARGET)": 170,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Trident",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 55,
+        "DPS (MULTI TARGET)": 140,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Blowgun",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-QueenSlime",
+        "DPS (SINGLE TARGET)": 52,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Pearlwood Bow",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 52,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Rotten Egg",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 52,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Abigail's Flower",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 50,
+        "DPS (MULTI TARGET)": 17,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Blood Butcherer",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Post-Brain/Worm",
+        "DPS (SINGLE TARGET)": 50,
+        "DPS (MULTI TARGET)": 150,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Bone Sword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 50,
+        "DPS (MULTI TARGET)": 140,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Flymeal",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 50,
+        "DPS (MULTI TARGET)": 150,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Gold Broadsword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 50,
+        "DPS (MULTI TARGET)": 150,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Lead Shortsword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 50,
+        "DPS (MULTI TARGET)": 130,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Platinum Broadsword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 50,
+        "DPS (MULTI TARGET)": 160,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Tendon Bow",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Brain/Worm",
+        "DPS (SINGLE TARGET)": 50,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Throwing Knife",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 50,
+        "DPS (MULTI TARGET)": 112,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Only two dummies"
+    },
+    {
+        "NAME": "Ruby Staff",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 49,
+        "DPS (MULTI TARGET)": 117,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Pierces 2 dummies"
+    },
+    {
+        "NAME": "Bone Javeline",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 48,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Amber Staff",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 45,
+        "DPS (MULTI TARGET)": 100,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Only 2 Dummies"
+    },
+    {
+        "NAME": "Demon Bow",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Brain/Worm",
+        "DPS (SINGLE TARGET)": 45,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Enchanted Boomerang",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 45,
+        "DPS (MULTI TARGET)": 60,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Flaming Mace",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 45,
+        "DPS (MULTI TARGET)": 125,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Mace",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 45,
+        "DPS (MULTI TARGET)": 130,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Rally",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 45,
+        "DPS (MULTI TARGET)": 45,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Silver Broadsword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 45,
+        "DPS (MULTI TARGET)": 120,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Silver Shortsword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 45,
+        "DPS (MULTI TARGET)": 130,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Snapthorn",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 45,
+        "DPS (MULTI TARGET)": 100,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Thunder Zapper",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 45,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Javeline",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 44,
+        "DPS (MULTI TARGET)": 150,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Red Ryder",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 44,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Shuriken",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 44,
+        "DPS (MULTI TARGET)": 140,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Platinum Bow",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 42,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Weather Pain",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Post-Deerclops",
+        "DPS (SINGLE TARGET)": 41,
+        "DPS (MULTI TARGET)": 105,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Ash Wood Sword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 40,
+        "DPS (MULTI TARGET)": 130,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Bat Bat",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 40,
+        "DPS (MULTI TARGET)": 130,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Candy Cane Sword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 40,
+        "DPS (MULTI TARGET)": 120,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Explosive Trap Cane",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-Destroyer",
+        "DPS (SINGLE TARGET)": 40,
+        "DPS (MULTI TARGET)": 120,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Iron Shortsword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 40,
+        "DPS (MULTI TARGET)": 120,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Lead Broadsword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 40,
+        "DPS (MULTI TARGET)": 110,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Spear",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 40,
+        "DPS (MULTI TARGET)": 80,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Tragic Umbrella",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 40,
+        "DPS (MULTI TARGET)": 80,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Only 2 Dummies"
+    },
+    {
+        "NAME": "Tungsten Broadsword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 40,
+        "DPS (MULTI TARGET)": 130,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Zombie Arm",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 40,
+        "DPS (MULTI TARGET)": 120,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Ashwood Bow",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 36,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Gold Bow",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 36,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Emerald Staff",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 35,
+        "DPS (MULTI TARGET)": 96,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Pierces 2 dummies"
+    },
+    {
+        "NAME": "Tin Shortsword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 35,
+        "DPS (MULTI TARGET)": 110,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Tungsten Bow",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 34,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Blowpipe",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 32,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Silver Bow",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 32,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Lead Bow",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 31,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Blade Staff",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-QueenSlime",
+        "DPS (SINGLE TARGET)": 30,
+        "DPS (MULTI TARGET)": 85,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Ebonwood Sword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 30,
+        "DPS (MULTI TARGET)": 100,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Gravedigger's Shovel",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 30,
+        "DPS (MULTI TARGET)": 100,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Iron Broadsword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 30,
+        "DPS (MULTI TARGET)": 100,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Leather Whip",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 30,
+        "DPS (MULTI TARGET)": 60,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Sanguine Staff",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-WoF",
+        "DPS (SINGLE TARGET)": 30,
+        "DPS (MULTI TARGET)": 120,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Shadewood Sword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 30,
+        "DPS (MULTI TARGET)": 100,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Slime Staff",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 30,
+        "DPS (MULTI TARGET)": 80,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Tin Broadsword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 30,
+        "DPS (MULTI TARGET)": 85,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Wooden Boomerang",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 30,
+        "DPS (MULTI TARGET)": 40,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Ebonwood Bow",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 29,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Iron Bow",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 29,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Shadewood Bow",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 29,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Wand of Sparkling",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 28,
+        "DPS (MULTI TARGET)": 64,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Pierces 2 dummies"
+    },
+    {
+        "NAME": "Ale Tosser",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Post-Brain/Worm",
+        "DPS (SINGLE TARGET)": 27,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Copper Broadsword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 27,
+        "DPS (MULTI TARGET)": 75,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Tin Bow",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 26,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Ballista Rod",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 25,
+        "DPS (MULTI TARGET)": 80,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Bloodrain Bow",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 25,
+        "DPS (MULTI TARGET)": 70,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Copper Shortsword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 25,
+        "DPS (MULTI TARGET)": 70,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Flameburst Cane",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-Destroyer",
+        "DPS (SINGLE TARGET)": 25,
+        "DPS (MULTI TARGET)": 50,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Only two dummies"
+    },
+    {
+        "NAME": "Palm Wood Sword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 25,
+        "DPS (MULTI TARGET)": 75,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Sapphire Staff",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 25,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Sickle",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 25,
+        "DPS (MULTI TARGET)": 70,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Umbrella",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 25,
+        "DPS (MULTI TARGET)": 50,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Only 2 Dummies"
+    },
+    {
+        "NAME": "Palm Wood Bow",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 24,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Boreal Wood Bow",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 22,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Copper Bow",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 22,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Rich Mahagony Bow",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 22,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Topaz Staff",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 22,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Boreal Wood Sword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 20,
+        "DPS (MULTI TARGET)": 70,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Breathing Reed",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 20,
+        "DPS (MULTI TARGET)": 60,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Houndius Shootius",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-Deerclops",
+        "DPS (SINGLE TARGET)": 20,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Lightning Aura Cane",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-Destroyer",
+        "DPS (SINGLE TARGET)": 20,
+        "DPS (MULTI TARGET)": 60,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Rich Mahogany Sword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 20,
+        "DPS (MULTI TARGET)": 70,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Wooden Bow",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 20,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Wooden Sword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 20,
+        "DPS (MULTI TARGET)": 60,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Wooden Yoyo",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 20,
+        "DPS (MULTI TARGET)": 30,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Only 2 Dummies"
+    },
+    {
+        "NAME": "Amethyst Staff",
+        "CLASS": "Mage",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 18,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Cactus Sword",
+        "CLASS": "Melee",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 18,
+        "DPS (MULTI TARGET)": 55,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Explosive Trap Rod",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 15,
+        "DPS (MULTI TARGET)": 45,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Hornet Staff",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-QueenBee",
+        "DPS (SINGLE TARGET)": 15,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Imp Staff",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Post-Brain/Worm",
+        "DPS (SINGLE TARGET)": 15,
+        "DPS (MULTI TARGET)": 75,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Paper Plane",
+        "CLASS": "Ranger",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 14,
+        "DPS (MULTI TARGET)": "",
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Does not pierce"
+    },
+    {
+        "NAME": "Finch Staff",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 10,
+        "DPS (MULTI TARGET)": 25,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Flameburst Rod",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 8,
+        "DPS (MULTI TARGET)": 18,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": "Only two dummies"
+    },
+    {
+        "NAME": "Flinx Staff",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 8,
+        "DPS (MULTI TARGET)": 70,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    },
+    {
+        "NAME": "Lightning Aura Rod",
+        "CLASS": "Summoner",
+        "GAME PROGRESSION": "Pre-Boss",
+        "DPS (SINGLE TARGET)": 8,
+        "DPS (MULTI TARGET)": 24,
+        "DPS (SINGLE TARGET + PROJECTILE ONLY)": "",
+        "DPS (MULTI TARGET + PROJECTILE ONLY)": "",
+        "OBSERVATIONS": ""
+    }
+]
