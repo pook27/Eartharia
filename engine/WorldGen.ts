@@ -1,4 +1,3 @@
-
 import { IDS, PROPS } from '../data/items';
 import { InventorySlot, WorldData, NPC } from '../types';
 import { TILE_SIZE } from '../constants';
@@ -7,7 +6,6 @@ import { TILE_SIZE } from '../constants';
 class RNG {
     seed: number;
     constructor(seedString: string) {
-        // Simple hash of the seed string
         let h = 2166136261 >>> 0;
         for (let i = 0; i < seedString.length; i++) {
             h = Math.imul(h ^ seedString.charCodeAt(i), 16777619);
@@ -15,7 +13,6 @@ class RNG {
         this.seed = h >>> 0;
     }
 
-    // Mulberry32
     next(): number {
         this.seed = (this.seed + 0x6D2B79F5) | 0;
         let t = Math.imul(this.seed ^ (this.seed >>> 15), 1 | this.seed);
@@ -33,23 +30,22 @@ class RNG {
 }
 
 // --- Noise Helper ---
-const getPerlinRoughness = (x: number, maxW: number, rng: RNG): number => {
-    // Determine distance from center to flatten spawn
-    const dist = Math.abs(x - maxW / 2);
-    const safeZone = maxW * 0.1; // 10% of world width is safe/flat spawn
-    let amplitude = 1.0;
+const getSurfaceHeight = (x: number, maxW: number, rng: RNG): number => {
+    // Tamer, rolling hills for the overworld (Terraria-style Purity)
+    const baseFreq = 0.015;
+    const detailFreq = 0.05;
     
-    if (dist < safeZone) {
-        // Smoothly ramp up noise from 0 at center to 1.0 at edge of safe zone
-        amplitude = Math.pow(dist / safeZone, 2);
+    // Flatten spawn area (center 10%)
+    const distFromCenter = Math.abs(x - maxW / 2);
+    let amplitude = 1.0;
+    if (distFromCenter < maxW * 0.05) {
+        amplitude = Math.max(0, (distFromCenter / (maxW * 0.05)));
     }
 
-    // Combine a few sine waves for terrain height
-    const base = Math.sin(x * 0.02 + rng.seed) * 15 * amplitude; // Rolling hills
-    const detail = Math.sin(x * 0.1 + rng.seed * 2) * 5 * amplitude; // Bumps
-    const mountain = Math.sin(x * 0.005 + rng.seed * 3) * 30 * amplitude; // Biome variance
+    const h1 = Math.sin(x * baseFreq + rng.seed) * 20 * amplitude;
+    const h2 = Math.sin(x * detailFreq + rng.seed * 2) * 5 * amplitude;
     
-    return base + detail + mountain;
+    return h1 + h2;
 };
 
 export const generateWorld = (
@@ -59,21 +55,21 @@ export const generateWorld = (
     npcs: NPC[],
     worldData: WorldData
 ) => {
-    console.log("Generating World with Eartharia Gen...", worldData);
+    console.log("Generating Terraria-style World...", worldData);
     const rng = new RNG(worldData.seed);
     const w = worldData.width;
     const h = worldData.height;
 
     const surfaceHeights = new Int32Array(w);
-    const SURFACE_BASE = Math.floor(h * 0.25); // Ground starts at 25% down
-    const ROCK_LEVEL = Math.floor(h * 0.45);   // Stone starts at 45% down
-    const HELL_LEVEL = h - 80;                 // Hell is the bottom 80 rows
+    const SURFACE_LEVEL = Math.floor(h * 0.3); // Surface Layer
+    const UNDERGROUND_LEVEL = Math.floor(h * 0.4); // Dirt -> Stone transition
+    const CAVERN_LEVEL = Math.floor(h * 0.6); // Deep Caves
+    const HELL_LEVEL = h - 100; // Underworld
 
-    // --- Pass 1: Terrain Shape & Backgrounds ---
+    // --- Pass 1: Terrain Shape & Layers ---
     for (let x = 0; x < w; x++) {
-        // Calculate surface height with flattened center
-        const roughness = getPerlinRoughness(x, w, rng);
-        const sy = Math.floor(SURFACE_BASE + roughness);
+        const rough = getSurfaceHeight(x, w, rng);
+        const sy = Math.floor(SURFACE_LEVEL + rough);
         surfaceHeights[x] = sy;
 
         for (let y = 0; y < h; y++) {
@@ -85,12 +81,10 @@ export const generateWorld = (
                 walls[idx] = 0;
             } else {
                 // Solid Ground
-                
-                // Determine Layer
                 if (y >= HELL_LEVEL) {
-                    world[idx] = IDS.ASH_BLOCK;
-                    walls[idx] = 0; // Hell has unique background or open back (we use 0 for dark moody look)
-                } else if (y >= ROCK_LEVEL) {
+                    world[idx] = IDS.ASH_BLOCK || IDS.STONE_BLOCK; // Fallback if Ash missing
+                    walls[idx] = 0; // Hell background is usually handled by shader/renderer or Ash Wall
+                } else if (y >= UNDERGROUND_LEVEL) {
                     world[idx] = IDS.STONE_BLOCK;
                     walls[idx] = IDS.STONE_WALL;
                 } else {
@@ -99,51 +93,28 @@ export const generateWorld = (
                 }
             }
         }
-        
-        // Grassify Surface
-        const idx = sy * w + x;
-        if (world[idx] === IDS.DIRT_BLOCK) {
-            world[idx] = IDS.GRASS_BLOCK;
-            // Chance for weeds/flowers
-            if (rng.chance(3) && sy > 0) {
-                world[(sy-1)*w+x] = IDS.WEED;
-            }
-        }
     }
 
-    // --- Pass 2: The Worms (Cave Generation) ---
-    // Increase chaos underground while keeping surface intact
-    const numCaves = Math.floor((w * h) / 800); 
-
-    for (let i = 0; i < numCaves; i++) {
-        let cx = rng.range(0, w);
-        // Start caves deeper to preserve surface planar look
-        let cy = rng.range(SURFACE_BASE + 15, h - 5);
-        
-        // Hell caves are large open pockets
-        const isHell = cy > HELL_LEVEL;
-        let radius = isHell ? rng.range(4, 9) : rng.range(2, 5);
-        let life = rng.range(50, 400);
-        
+    // --- Pass 2: The "Big Tunneling" (Cavern Generation) ---
+    // Terraria uses "Worms" or "Walkers" that dig tunnels.
+    // Deep caverns need to be wider and more interconnected.
+    
+    const digWorm = (cx: number, cy: number, size: number, length: number, branchChance: number) => {
         let vx = rng.range(-1, 1);
         let vy = rng.range(-1, 1);
-
-        while (life > 0) {
-            life--;
-
-            // Carve
-            const rSq = radius * radius;
-            for (let dy = -radius; dy <= radius; dy++) {
-                for (let dx = -radius; dx <= radius; dx++) {
-                    if (dx*dx + dy*dy <= rSq) {
+        
+        for(let i=0; i<length; i++) {
+            // Dig circle
+            const rSq = size * size;
+            for(let dy = -size; dy <= size; dy++) {
+                for(let dx = -size; dx <= size; dx++) {
+                    if(dx*dx + dy*dy <= rSq) {
                         const tx = Math.floor(cx + dx);
                         const ty = Math.floor(cy + dy);
-                        if (tx > 0 && tx < w-1 && ty > 0 && ty < h-1) {
-                            // Don't dig up through the surface layer unless it's a specific surface cave entrance (rare)
-                            if (ty > surfaceHeights[tx] + 5) {
-                                world[ty * w + tx] = IDS.AIR;
-                                // In hell, remove walls occasionally for texture
-                                if (isHell && rng.chance(10)) walls[ty * w + tx] = 0; 
+                        if(tx > 0 && tx < w-1 && ty > 0 && ty < h-1) {
+                            // Don't break surface crust heavily
+                            if (ty > surfaceHeights[tx] + 8) {
+                                world[ty*w+tx] = IDS.AIR;
                             }
                         }
                     }
@@ -153,52 +124,178 @@ export const generateWorld = (
             // Move
             cx += vx;
             cy += vy;
-
-            // Wiggle
-            vx += rng.range(-0.2, 0.2);
-            vy += rng.range(-0.2, 0.2);
             
-            // Normalize speed
+            // Steer (Wiggle)
+            vx += rng.range(-0.3, 0.3);
+            vy += rng.range(-0.3, 0.3);
+            
+            // Normalize
             const speed = Math.sqrt(vx*vx + vy*vy);
-            if (speed > 0) {
-                vx = (vx / speed);
-                vy = (vy / speed);
-            }
+            if(speed > 0) { vx /= speed; vy /= speed; }
 
-            // Bounce
-            if (cx < 5 || cx > w - 5) vx = -vx;
-            if (cy < SURFACE_BASE + 20 || cy > h - 5) vy = -vy;
+            // Bounds bounce
+            if(cx < 20 || cx > w-20) vx = -vx;
+            if(cy < SURFACE_LEVEL + 10 || cy > h-20) vy = -vy;
+
+            // Branching - FIXED: Check if branchChance > 0 to prevent infinite 1/0 (Infinity) probability
+            if(branchChance > 0 && rng.chance(branchChance) && length > 20) {
+                // Pass 0 to ensure children do not branch further
+                digWorm(cx, cy, size * 0.8, length / 2, 0);
+            }
+        }
+    };
+
+    // 2a. Surface Caves (Small, sparse)
+    for(let i=0; i < w/10; i++) {
+        if(rng.chance(3)) {
+            const x = rng.range(0, w);
+            const y = surfaceHeights[Math.floor(x)] + 10;
+            digWorm(x, y, rng.range(2, 3), rng.range(50, 100), 500);
         }
     }
 
-    // --- Pass 3: Ore Veins ---
-    const generateVein = (tileId: number, attempts: number, size: number, minDepth: number, maxDepth: number, replaceAsh: boolean = false) => {
+    // 2b. Deep Caverns (Large, Swiss Cheese)
+    const numDeepCaves = (w * h) / 8000;
+    for(let i=0; i < numDeepCaves; i++) {
+        const x = rng.range(0, w);
+        const y = rng.range(CAVERN_LEVEL, HELL_LEVEL - 20);
+        // Larger radius for deep caves
+        digWorm(x, y, rng.range(3, 7), rng.range(100, 300), 50);
+    }
+
+    // --- Pass 3: Biomes ---
+    // Dividing world into vertical slices
+    // Layout: Snow (Left) - Corruption - Forest - Desert - Jungle (Right)
+    const biomeWidth = w / 5;
+    
+    const SNOW_START = 0;
+    const SNOW_END = biomeWidth;
+    
+    const CORRUPTION_START = biomeWidth;
+    const CORRUPTION_END = biomeWidth * 1.5; // Narrower corruption
+    
+    // Forest is roughly center (1.5 to 3.0)
+    
+    const DESERT_START = biomeWidth * 3.0;
+    const DESERT_END = biomeWidth * 3.8;
+    
+    const JUNGLE_START = biomeWidth * 3.8;
+    const JUNGLE_END = w;
+
+    // Helper: Replace blocks in a region
+    const transformBiome = (xStart: number, xEnd: number, targetBlock: number, targetWall?: number, check?: (id:number)=>boolean) => {
+        for (let x = Math.floor(xStart); x < xEnd; x++) {
+            for (let y = 0; y < h; y++) {
+                const idx = y * w + x;
+                const tile = world[idx];
+                if (tile === IDS.AIR) continue;
+                
+                // Don't touch Hell
+                if (y >= HELL_LEVEL) continue;
+
+                let shouldChange = false;
+                if (check) {
+                    shouldChange = check(tile);
+                } else {
+                    // Default: Convert Dirt and Stone
+                    shouldChange = (tile === IDS.DIRT_BLOCK || tile === IDS.STONE_BLOCK || tile === IDS.GRASS_BLOCK);
+                }
+
+                if (shouldChange) {
+                    world[idx] = targetBlock;
+                    if (targetWall && walls[idx] !== 0) walls[idx] = targetWall; 
+                }
+            }
+        }
+    };
+
+    // Apply Snow
+    transformBiome(SNOW_START, SNOW_END, IDS.SNOW_BLOCK || IDS.DIRT_BLOCK, 0, (t) => t === IDS.DIRT_BLOCK || t === IDS.GRASS_BLOCK || t === IDS.STONE_BLOCK);
+    // Add Ice deep underground in snow
+    for(let x=0; x<SNOW_END; x++) {
+        for(let y=UNDERGROUND_LEVEL; y<HELL_LEVEL; y++) {
+            if(world[y*w+x] === IDS.SNOW_BLOCK && rng.chance(2)) world[y*w+x] = IDS.ICE_BLOCK || IDS.SNOW_BLOCK;
+        }
+    }
+
+    // Apply Desert
+    transformBiome(DESERT_START, DESERT_END, IDS.SAND_BLOCK || IDS.DIRT_BLOCK, 0, (t) => t === IDS.DIRT_BLOCK || t === IDS.GRASS_BLOCK);
+    // Sandstone underground
+    for(let x=DESERT_START; x<DESERT_END; x++) {
+        for(let y=UNDERGROUND_LEVEL; y<HELL_LEVEL; y++) {
+            if(world[y*w+x] === IDS.STONE_BLOCK) world[y*w+x] = IDS.SANDSTONE_BRICK || IDS.SAND_BLOCK; // Fallback
+        }
+    }
+
+    // Apply Jungle
+    transformBiome(JUNGLE_START, JUNGLE_END, IDS.MUD_BLOCK || IDS.DIRT_BLOCK);
+    // Jungle Grass on Mud (Surface & Underground)
+    for(let x=Math.floor(JUNGLE_START); x<w; x++) {
+        for(let y=0; y<HELL_LEVEL; y++) {
+            const idx = y*w+x;
+            if(world[idx] === IDS.MUD_BLOCK) {
+                // Check if air adjacent for grass
+                let airAdj = false;
+                if(y>0 && world[(y-1)*w+x]===IDS.AIR) airAdj = true;
+                if(airAdj) world[idx] = IDS.JUNGLE_GRASS_SEEDS || IDS.GRASS_BLOCK; // Visual placeholder
+            }
+        }
+    }
+
+    // --- Pass 4: Corruption Chasms ---
+    // Vertical drops
+    const numChasms = rng.range(2, 4);
+    for(let i=0; i<numChasms; i++) {
+        let cx = rng.range(CORRUPTION_START + 20, CORRUPTION_END - 20);
+        const startY = surfaceHeights[Math.floor(cx)];
+        let cy = startY;
+        
+        // Dig Shaft
+        while(cy < CAVERN_LEVEL + 50) {
+            const radius = rng.range(4, 7);
+            const rSq = radius * radius;
+            
+            // Dig & Infect
+            for(let dy=-radius; dy<=radius; dy++) {
+                for(let dx=-radius; dx<=radius; dx++) {
+                    const tx = Math.floor(cx + dx);
+                    const ty = Math.floor(cy + dy);
+                    const tidx = ty*w+tx;
+                    
+                    if (dx*dx+dy*dy <= rSq) {
+                        // Dig air in center
+                        if (dx*dx+dy*dy <= (radius-2)*(radius-2)) {
+                            world[tidx] = IDS.AIR;
+                            walls[tidx] = IDS.EBONSTONE_BRICK_WALL || IDS.STONE_WALL; // Background
+                        } else {
+                            // Wall of the chasm (Ebonstone)
+                            if (world[tidx] !== IDS.AIR) {
+                                world[tidx] = IDS.EBONSTONE_BLOCK || IDS.STONE_BLOCK;
+                            }
+                        }
+                    }
+                }
+            }
+            cy += 1;
+            cx += rng.range(-0.5, 0.5); // Slight wobble
+        }
+        
+        // Horizontal tunnel at bottom
+        digWorm(cx, cy, 6, 100, 0);
+    }
+
+    // --- Pass 5: Ore Veins ---
+    const generateVein = (tileId: number, attempts: number, size: number, minDepth: number, maxDepth: number) => {
+        if (!tileId) return;
         for (let i = 0; i < attempts; i++) {
             let cx = rng.range(0, w);
             let cy = rng.range(minDepth, maxDepth);
-            
-            // Check if start is solid
-            const startIdx = Math.floor(cy) * w + Math.floor(cx);
-            if (world[startIdx] === IDS.AIR) continue;
+            if (world[Math.floor(cy)*w + Math.floor(cx)] === IDS.AIR) continue;
 
             for (let j = 0; j < size; j++) {
-                const tx = Math.floor(cx);
-                const ty = Math.floor(cy);
-                if (tx > 0 && tx < w && ty > 0 && ty < h) {
-                    const idx = ty * w + tx;
-                    const currentTile = world[idx];
-                    
-                    // Specific logic for Hellstone: replace Ash
-                    if (replaceAsh) {
-                        if (currentTile === IDS.ASH_BLOCK) {
-                            world[idx] = tileId;
-                        }
-                    } else {
-                        // Normal ores replace stone/dirt/ash
-                        if (currentTile !== IDS.AIR && currentTile !== IDS.CHEST) {
-                             world[idx] = tileId;
-                        }
-                    }
+                if(cx>0 && cx<w && cy>0 && cy<h) {
+                    const idx = Math.floor(cy)*w + Math.floor(cx);
+                    if(world[idx] !== IDS.AIR && world[idx] !== IDS.CHEST) world[idx] = tileId;
                 }
                 cx += rng.range(-1, 1);
                 cy += rng.range(-1, 1);
@@ -206,173 +303,120 @@ export const generateWorld = (
         }
     };
 
-    const mapScale = w / 400; // Multiplier for map size
+    const scale = w / 400;
+    generateVein(IDS.COPPER_ORE, 200 * scale, 8, SURFACE_LEVEL, HELL_LEVEL);
+    generateVein(IDS.IRON_ORE, 150 * scale, 8, SURFACE_LEVEL + 50, HELL_LEVEL);
+    generateVein(IDS.SILVER_ORE, 120 * scale, 7, UNDERGROUND_LEVEL, HELL_LEVEL);
+    generateVein(IDS.GOLD_ORE, 100 * scale, 6, CAVERN_LEVEL, HELL_LEVEL);
+    generateVein(IDS.DEMONITE_ORE, 60 * scale, 6, CAVERN_LEVEL, HELL_LEVEL); // Rare
+    generateVein(IDS.HELLSTONE, 300 * scale, 6, HELL_LEVEL, h);
 
-    generateVein(IDS.COPPER_ORE, 180 * mapScale, 8, SURFACE_BASE + 10, HELL_LEVEL);
-    generateVein(IDS.IRON_ORE, 140 * mapScale, 9, SURFACE_BASE + 30, HELL_LEVEL);
-    generateVein(IDS.SILVER_ORE, 110 * mapScale, 7, ROCK_LEVEL, HELL_LEVEL);
-    generateVein(IDS.GOLD_ORE, 80 * mapScale, 6, ROCK_LEVEL + 50, HELL_LEVEL);
-    
-    // Hellstone: High frequency, smaller veins, specifically inside Ash
-    generateVein(IDS.HELLSTONE, 300 * mapScale, 5, HELL_LEVEL, h, true);
-
-    // --- Pass 4: Liquids ---
-    // Water pools in caves
-    for (let i = 0; i < 60 * mapScale; i++) {
-        const x = Math.floor(rng.range(0, w));
-        const y = Math.floor(rng.range(SURFACE_BASE + 10, HELL_LEVEL - 50));
-        const idx = y * w + x;
-        if (world[idx] === IDS.AIR) {
-            // Check solid bottom
-            let solidBottom = false;
-            for(let k=1; k<4; k++) {
-                if (PROPS[world[(y+k)*w+x]]?.solid) { solidBottom = true; break; }
-            }
-            if (solidBottom) world[idx] = IDS.WATER;
-        }
-    }
-    
-    // Massive Lava pools in Hell
+    // --- Pass 6: Hell Layer ---
+    // Lava lakes and Ash
     for (let x = 0; x < w; x++) {
-        for (let y = HELL_LEVEL + 15; y < h; y++) {
+        for (let y = HELL_LEVEL; y < h; y++) {
             const idx = y * w + x;
-            if (world[idx] === IDS.AIR) {
-                // Fill lower half of hell caves with lava
-                // Or if it's the very bottom of the map
-                if (y > h - 15 || rng.chance(4)) {
-                     world[idx] = IDS.LAVA;
-                }
+            // Clear space for hell (openness)
+            if (y > HELL_LEVEL + 10 && y < h - 10 && rng.chance(2)) {
+                world[idx] = IDS.AIR;
             }
-        }
-    }
-
-    // --- Pass 5: Biome Columns ---
-    // Layout: Snow (Left) -> Forest (Center) -> Desert (Right-Mid) -> Jungle (Far Right)
-    const snowEnd = Math.floor(w * 0.15);
-    // Center Spawn Area (Forest) is implicit between Snow and Desert
-    const desertStart = Math.floor(w * 0.65);
-    const desertEnd = Math.floor(w * 0.80);
-    const jungleStart = Math.floor(w * 0.80);
-
-    for (let y = 0; y < HELL_LEVEL; y++) {
-        for (let x = 0; x < w; x++) {
-            const idx = y * w + x;
-            const tile = world[idx];
             
-            if (x < snowEnd) {
-                // Snow Biome
-                if (tile === IDS.DIRT_BLOCK || tile === IDS.GRASS_BLOCK) world[idx] = IDS.SNOW_BLOCK;
-                if (tile === IDS.STONE_BLOCK) world[idx] = IDS.ICE_BLOCK;
-            } else if (x > desertStart && x < desertEnd) {
-                // Desert
-                if (tile === IDS.DIRT_BLOCK || tile === IDS.GRASS_BLOCK) world[idx] = IDS.SAND_BLOCK;
-                if (tile === IDS.STONE_BLOCK) world[idx] = IDS.SANDSTONE_BLOCK;
-            } else if (x > jungleStart) {
-                // Jungle
-                if (tile === IDS.DIRT_BLOCK || tile === IDS.STONE_BLOCK) world[idx] = IDS.MUD_BLOCK;
-                if (tile === IDS.GRASS_BLOCK) world[idx] = IDS.JUNGLE_GRASS_SEEDS ? IDS.JUNGLE_GRASS_SEEDS : IDS.GRASS_BLOCK; // Needs distinct jungle grass ID ideally
+            // Lava Lakes
+            if (y > h - 40 && world[idx] === IDS.AIR) {
+                world[idx] = IDS.LAVA;
             }
         }
     }
 
-    // --- Pass 6: Structures (Underground Cabins) ---
-    const generateCabin = (cx: number, cy: number) => {
+    // --- Pass 7: Liquids & Vegetation ---
+    // Water in caves
+    for (let i=0; i<50*scale; i++) {
+        const wx = Math.floor(rng.range(0, w));
+        const wy = Math.floor(rng.range(SURFACE_LEVEL+20, CAVERN_LEVEL));
+        if (world[wy*w+wx] === IDS.AIR) world[wy*w+wx] = IDS.WATER;
+    }
+
+    // Grass on Dirt Surface
+    for (let x = 0; x < w; x++) {
+        let y = 0;
+        while(y < h && world[y*w+x] === IDS.AIR) y++;
+        
+        if (world[y*w+x] === IDS.DIRT_BLOCK) {
+            world[y*w+x] = IDS.GRASS_BLOCK;
+            // Plant trees/weeds
+            if (rng.chance(5)) world[(y-1)*w+x] = IDS.WEED;
+            // Trees? Engine might handle saplings, but we can place logs if needed.
+        }
+    }
+
+    // --- Pass 8: Structures (Cabins) ---
+    const chestsPlaced: string[] = [];
+    const placeCabin = (cx: number, cy: number) => {
+        // Find floor
         let fy = cy;
-        // Search downwards for a floor
-        while(fy < h && world[fy * w + cx] === IDS.AIR) fy++;
-        if (fy >= h - 5) return; 
+        while(fy < h && world[fy*w+cx] === IDS.AIR) fy++;
+        if (fy >= h) return;
 
         const floorY = fy;
-        const cabinW = 10;
-        const cabinH = 6;
-        const startX = cx - Math.floor(cabinW / 2);
-        const startY = floorY - cabinH;
+        const width = 8;
+        const height = 5;
+        const sx = cx - Math.floor(width/2);
+        const sy = floorY - height;
 
-        if (startX < 0 || startX + cabinW >= w) return;
-
-        // Build Shell
-        for (let y = startY; y <= floorY; y++) {
-            for (let x = startX; x <= startX + cabinW; x++) {
-                const idx = y * w + x;
-                
-                // Back Walls
-                if (x > startX && x < startX + cabinW && y > startY && y < floorY) {
+        // Build box
+        for(let y=sy; y<=floorY; y++) {
+            for(let x=sx; x<=sx+width; x++) {
+                const idx = y*w+x;
+                if (x===sx || x===sx+width || y===sy || y===floorY) {
+                    world[idx] = IDS.WOOD; // Planks
+                } else {
                     world[idx] = IDS.AIR;
                     walls[idx] = IDS.WOOD_WALL;
                 }
-                
-                // Frame (Wood Planks)
-                if (x === startX || x === startX + cabinW || y === startY || y === floorY) {
-                    world[idx] = IDS.WOOD;
-                }
             }
         }
-
-        // Place Chest
+        
+        // Chest
         const chestX = cx;
         const chestY = floorY - 1;
-        world[chestY * w + chestX] = IDS.CHEST;
+        world[chestY*w+chestX] = IDS.CHEST;
         
-        // Loot Table
+        // Loot
         const loot: InventorySlot[] = [];
-        const rares = [IDS.CLOUD_IN_A_BOTTLE, IDS.HERMES_BOOTS, IDS.BAND_OF_REGENERATION, IDS.MAGIC_MIRROR, IDS.SHOE_SPIKES, IDS.FLARE_GUN, IDS.ENCHANTED_BOOMERANG];
-        const rareId = rares[Math.floor(rng.next() * rares.length)];
-        if (rareId) loot.push({ id: rareId, n: 1 });
-        
-        // Consumables
-        loot.push({ id: IDS.GOLD_COIN, n: rng.range(1, 3) });
-        loot.push({ id: IDS.HEALING_POTION, n: rng.range(3, 8) });
-        loot.push({ id: IDS.TORCH, n: rng.range(15, 40) });
-        if (rng.chance(2)) loot.push({ id: IDS.SILVER_BAR, n: rng.range(4, 10) });
-        if (rng.chance(2)) loot.push({ id: IDS.GOLD_BAR, n: rng.range(3, 8) });
+        const rares = [IDS.CLOUD_IN_A_BOTTLE, IDS.HERMES_BOOTS, IDS.MAGIC_MIRROR, IDS.BAND_OF_REGENERATION];
+        if (rares.length && rares[0]) loot.push({ id: rares[Math.floor(rng.next()*rares.length)], n: 1 });
+        loot.push({ id: IDS.GOLD_COIN, n: rng.range(1, 5) });
+        loot.push({ id: IDS.HEALING_POTION, n: rng.range(3, 10) });
+        loot.push({ id: IDS.TORCH, n: rng.range(10, 30) });
 
         chests[`${chestX},${chestY}`] = loot;
-
-        // Place Torch inside
-        world[(floorY - 3) * w + cx] = IDS.TORCH;
     };
 
-    // Try to place cabins
-    const cabinAttempts = 60 * mapScale;
-    for (let i = 0; i < cabinAttempts; i++) {
-        const cx = Math.floor(rng.range(50, w - 50));
-        const cy = Math.floor(rng.range(ROCK_LEVEL, HELL_LEVEL - 40));
-        // Only start if we are in air (in a cave)
-        if (world[cy * w + cx] === IDS.AIR) {
-            generateCabin(cx, cy);
-        }
+    for(let i=0; i<40*scale; i++) {
+        const cx = Math.floor(rng.range(50, w-50));
+        const cy = Math.floor(rng.range(UNDERGROUND_LEVEL, HELL_LEVEL-50));
+        if (world[cy*w+cx] === IDS.AIR) placeCabin(cx, cy);
     }
 
-    // --- Pass 7: Spawn Area Cleanup ---
-    // Ensure the player spawns in the center forest on flat ground
+    // --- Pass 9: Spawn Cleanup ---
     const spawnX = Math.floor(w / 2);
     let spawnY = surfaceHeights[spawnX] - 3;
     
-    // Force a small flat area around spawn
-    for (let x = spawnX - 5; x <= spawnX + 5; x++) {
-        // Match height to spawn center height
-        const targetY = surfaceHeights[spawnX];
-        // Fill ground below
-        for (let y = targetY; y < targetY + 10; y++) {
-             world[y * w + x] = IDS.DIRT_BLOCK;
-             walls[y * w + x] = IDS.DIRT_WALL;
+    // Ensure spawn is safe
+    for(let x=spawnX-5; x<=spawnX+5; x++) {
+        const sy = surfaceHeights[spawnX]; // Flatten to center height
+        for(let y=sy-5; y<sy+5; y++) {
+            if (y >= sy) world[y*w+x] = IDS.GRASS_BLOCK;
+            else world[y*w+x] = IDS.AIR;
         }
-        // Clear air above
-        for (let y = targetY - 10; y < targetY; y++) {
-            world[y * w + x] = IDS.AIR;
-            walls[y * w + x] = 0;
-        }
-        // Add grass
-        world[targetY * w + x] = IDS.GRASS_BLOCK;
     }
 
-    // Spawn Guide
     npcs.push({
         id: Math.random(),
         type: 'guide',
         aiStyle: 'passive',
         x: spawnX * TILE_SIZE,
-        y: (spawnY - 2) * TILE_SIZE,
+        y: (spawnY - 5) * TILE_SIZE,
         w: 24, h: 42,
         vx: 0, vy: 0,
         face: 1,
