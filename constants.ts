@@ -20,6 +20,7 @@ export const NIGHT_START = 13000;
 export const NIGHT_END = 23000;
 
 // Biome Boundaries (percentages of map width)
+export const SURFACE_BASE = 0.15;
 export const BIOME_SNOW_END = 0.15;
 export const BIOME_JUNGLE_START = 0.75; // Jungle on the far right
 export const BIOME_DESERT_START = 0.55; // Desert in the middle-right
