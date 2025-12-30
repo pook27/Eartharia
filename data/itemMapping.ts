@@ -98,6 +98,7 @@ export const mapItemProperties = (id: number, name: string): ItemProp => {
         prop.dmg = mat.dmg;
         prop.icon = '🏹';
         prop.value = 5;
+        prop.ammo = true;
     } 
     
     // Armor
@@ -266,6 +267,7 @@ export const mapItemProperties = (id: number, name: string): ItemProp => {
 
     if (lowerName.includes("coin")) {
         prop.icon = '🪙';
+        prop.coin = true;
         if (lowerName.includes("copper")) {
             prop.value = 1;
             prop.tint = '#e67e22';
@@ -286,6 +288,7 @@ export const mapItemProperties = (id: number, name: string): ItemProp => {
     if (lowerName.includes("star") && !lowerName.includes("statue")) {
         prop.icon = '⭐';
         prop.value = 50;
+        prop.ammo = true;
     }
     if (lowerName.includes("heart") && !lowerName.includes("statue")) {
         prop.icon = '❤️';
@@ -293,14 +296,25 @@ export const mapItemProperties = (id: number, name: string): ItemProp => {
     if (lowerName.includes("bullet") || lowerName.includes("shot")) {
         prop.icon = '⚫';
         prop.value = 7;
+        prop.ammo = true;
+    }
+    if (lowerName.includes("rocket") && !lowerName.includes("boots")) {
+        prop.ammo = true;
     }
     if (lowerName.includes("gel")) {
         prop.icon = '💧';
         prop.value = 5;
+        prop.ammo = true;
     }
     if (lowerName.includes("potion")) {
         prop.icon = '🧪';
         prop.value = 300;
+    }
+    if (lowerName.includes("dart") && !lowerName.includes("trap")) {
+        prop.ammo = true;
+    }
+    if (lowerName.includes("solution") || lowerName.includes("flare") || lowerName.includes("stake") || lowerName.includes("nail") || lowerName.includes("snowball")) {
+        prop.ammo = true;
     }
     
     return prop;

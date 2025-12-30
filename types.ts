@@ -20,6 +20,8 @@ export interface ItemProp {
     bg?: boolean; // If true, drawn behind player
     placeWall?: number; // ID of wall this item places
     value?: number; // Value in copper coins
+    ammo?: boolean; // Is ammo
+    coin?: boolean; // Is coin
     
     // Weapon Stats from JSON
     weaponClass?: string;

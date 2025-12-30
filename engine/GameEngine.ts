@@ -942,7 +942,7 @@ export class GameEngine {
     // --- New Methods ---
 
     changeSlot(delta: number) {
-        this.player.sel = (this.player.sel - delta + 10) % 10;
+        this.player.sel = (this.player.sel + delta + 10) % 10;
         if (this.player.sel < 0) this.player.sel += 10;
     }
 
@@ -1147,29 +1147,56 @@ export class GameEngine {
     }
     
     addToInv(id: number, n: number, prefix?: number): boolean {
-        for(const slot of this.player.inv) {
-            if (slot.id === id && (!prefix && !slot.prefix)) {
-                if (slot.n < 999) {
-                     const space = 999 - slot.n;
-                     const amt = Math.min(space, n);
-                     slot.n += amt;
-                     n -= amt;
-                     if (n <= 0) { this.invDirty = true; return true; }
-                }
-            }
+        const prop = PROPS[id];
+
+        const pushToList = (list: InventorySlot[]) => {
+             // 1. Fill existing stacks
+             for (const slot of list) {
+                 if (slot.id === id && (!prefix && !slot.prefix)) {
+                      const space = 999 - slot.n;
+                      if (space > 0) {
+                          const amt = Math.min(space, n);
+                          slot.n += amt;
+                          n -= amt;
+                          if (n <= 0) return true;
+                      }
+                 }
+             }
+             // 2. Fill empty slots
+             for (const slot of list) {
+                 if (slot.id === 0) {
+                     slot.id = id;
+                     slot.n = n;
+                     slot.prefix = prefix;
+                     n = 0;
+                     return true;
+                 }
+             }
+             return false;
+        };
+
+        if (prop?.coin) {
+             if (pushToList(this.player.coins)) {
+                 this.invDirty = true;
+                 return true;
+             }
         }
-        if (n > 0) {
-            for(const slot of this.player.inv) {
-                if (slot.id === 0) {
-                    slot.id = id;
-                    slot.n = n;
-                    slot.prefix = prefix;
-                    n = 0;
-                    this.invDirty = true;
-                    return true;
-                }
-            }
+        if (prop?.ammo) {
+             if (pushToList(this.player.ammo)) {
+                 this.invDirty = true;
+                 return true;
+             }
         }
+        
+        // Always try main inventory if not fully picked up or not special type
+        if (pushToList(this.player.inv)) {
+            this.invDirty = true;
+            return true;
+        }
+        
+        // If we picked up something but not all, trigger update
+        if (n < (arguments[1] as number)) this.invDirty = true;
+        
         return n <= 0;
     }
     
