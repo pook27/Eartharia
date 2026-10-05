@@ -331,9 +331,10 @@ const App: React.FC = () => {
             try {
                 await initializeGameData();
                 setAppState('MENU');
-            } catch (err: any) {
-                console.error(err);
-                setError("Failed to load game data.");
+            } catch (err: unknown) {
+                console.error("Eartharia data initialization failed:", err);
+                const message = err instanceof Error ? err.message : String(err);
+                setError(`Game data failed to load: ${message}`);
             }
         };
         boot();
