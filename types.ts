@@ -2,8 +2,8 @@
 export interface ItemProp {
     id: number;
     name: string;
-    c: string; // Color (hex)
-    icon: string;
+    c?: string; // Base color (hex)
+    icon?: string;
     solid?: number; // 1 for solid, 0 for pass-through
     hardness?: number; // For mining
     tool?: 'pick' | 'axe' | 'sword' | 'hammer' | 'wall';
