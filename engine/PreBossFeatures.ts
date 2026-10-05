@@ -603,16 +603,53 @@ export class PreBossFeatures {
 
     private ensureStarterTown() {
         const midX = Math.floor(this.engine.width / 2);
-        const surface = this.surfaceAt(midX);
-        const roomY = Math.max(4, surface - 9);
         const offsets = [-19, -6, 7];
+        const houseW = 10;
+        const houseH = 6;
 
         this.houses = [];
 
         for (const off of offsets) {
-            const house = { x: midX + off, y: roomY, w: 10, h: 6 };
+            const x = midX + off;
+
+            // Anchor the floor to the deepest ground point across the footprint.
+            // This prevents the old floating-house / three-tile air-gap look.
+            let floorY = 0;
+            for (let tx = x; tx <= x + houseW; tx++) {
+                floorY = Math.max(floorY, this.surfaceAt(tx));
+            }
+
+            const house = {
+                x,
+                y: Math.max(4, floorY - houseH),
+                w: houseW,
+                h: houseH
+            };
+
+            this.levelHouseFoundation(house, floorY);
             this.buildHouse(house);
-            if (this.isValidHouse(house)) this.houses.push(house);
+
+            if (this.isValidHouse(house)) {
+                this.houses.push(house);
+            }
+        }
+    }
+
+    private levelHouseFoundation(h: House, floorY: number) {
+        const dirt = pickId('Dirt Block', 'Dirt');
+        if (!dirt) return;
+
+        const w = this.engine.width;
+        const bottom = Math.min(this.engine.height - 2, floorY + 4);
+
+        for (let x = h.x; x <= h.x + h.w; x++) {
+            // Give the house a continuous solid foundation into the terrain.
+            for (let y = floorY; y <= bottom; y++) {
+                const idx = y * w + x;
+                if (!this.engine.world[idx] || !PROPS[this.engine.world[idx]]?.solid) {
+                    this.engine.world[idx] = dirt;
+                }
+            }
         }
     }
 
