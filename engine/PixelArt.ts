@@ -1,4 +1,5 @@
-import { ItemProp, InventorySlot } from '../types';
+import { ItemProp } from '../types';
+import { PROPS } from '../data/items';
 
 const clamp = (v: number, min = 0, max = 255) => Math.max(min, Math.min(max, Math.round(v)));
 
@@ -338,6 +339,47 @@ export const drawItemIcon = (
         ctx.fill();
         ctx.fillStyle = shade(c, 60);
         ctx.fillRect(size * .40, size * .24, size * .09, size * .24);
+    } else if (hasAny(name, 'fallen star', 'star')) {
+        ctx.fillStyle = '#ffe66d';
+        const cx = size * .50;
+        const cy = size * .50;
+        const outer = size * .34;
+        const inner = size * .15;
+        ctx.beginPath();
+        for (let i = 0; i < 10; i++) {
+            const r = i % 2 === 0 ? outer : inner;
+            const a = -Math.PI / 2 + i * Math.PI / 5;
+            ctx.lineTo(cx + Math.cos(a) * r, cy + Math.sin(a) * r);
+        }
+        ctx.closePath();
+        ctx.fill();
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(size * .46, size * .27, size * .07, size * .07);
+    } else if (hasAny(name, 'heart', 'life crystal', 'mana crystal')) {
+        ctx.fillStyle = name.includes('mana') ? '#66b6ff' : '#ee4466';
+        ctx.fillRect(size * .28, size * .34, size * .17, size * .30);
+        ctx.fillRect(size * .55, size * .34, size * .17, size * .30);
+        ctx.fillRect(size * .22, size * .42, size * .56, size * .28);
+        ctx.fillRect(size * .32, size * .70, size * .36, size * .12);
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(size * .32, size * .39, size * .12, size * .08);
+    } else if (hasAny(name, 'arrow', 'bullet', 'shot', 'dart', 'snowball')) {
+        ctx.fillStyle = '#c9d2dc';
+        ctx.fillRect(size * .12, size * .46, size * .62, size * .09);
+        ctx.beginPath();
+        ctx.moveTo(size * .74, size * .36);
+        ctx.lineTo(size * .90, size * .50);
+        ctx.lineTo(size * .74, size * .64);
+        ctx.closePath();
+        ctx.fill();
+        ctx.fillStyle = '#755035';
+        ctx.fillRect(size * .08, size * .42, size * .12, size * .17);
+    } else if (hasAny(name, 'boots', 'shoe')) {
+        ctx.fillStyle = c;
+        ctx.fillRect(size * .22, size * .25, size * .28, size * .43);
+        ctx.fillRect(size * .42, size * .52, size * .38, size * .24);
+        ctx.fillStyle = shade(c, 30);
+        ctx.fillRect(size * .27, size * .30, size * .16, size * .10);
     } else {
         drawTile(ctx, id, prop, 0, 0, size);
         ctx.strokeStyle = 'rgba(15,23,42,.65)';
@@ -420,6 +462,43 @@ export const drawPlayerSprite = (
     ctx.fillStyle = shade(shoes, 28);
     ctx.fillRect(x + 3 - legSwing, y + 37, 4, 1);
     ctx.fillRect(x + 9 + legSwing, y + 37, 4, 1);
+
+    // Equipment overlays. The base sprite remains visible under armor.
+    const head = player.armor?.[0] && PROPS[player.armor[0].id];
+    const body = player.armor?.[1] && PROPS[player.armor[1].id];
+    const legs = player.armor?.[2] && PROPS[player.armor[2].id];
+
+    if (head?.name) {
+        const color = head.tint || head.c || '#9aa7b2';
+        ctx.fillStyle = '#16202a';
+        ctx.fillRect(x + 3, y + 1, 10, 4);
+        ctx.fillStyle = color;
+        ctx.fillRect(x + 4, y + 2, 8, 4);
+        if (head.name.toLowerCase().includes('mining')) {
+            ctx.fillStyle = '#ffd54f';
+            ctx.fillRect(x + 10, y + 4, 3, 2);
+        }
+    }
+
+    if (body?.name) {
+        const color = body.tint || body.c || '#8f9eaa';
+        ctx.fillStyle = '#16202a';
+        ctx.fillRect(x + 2, y + 12, 12, 13);
+        ctx.fillStyle = color;
+        ctx.fillRect(x + 3, y + 13, 10, 11);
+        ctx.fillStyle = shade(color, 28);
+        ctx.fillRect(x + 4, y + 14, 8, 2);
+    }
+
+    if (legs?.name) {
+        const color = legs.tint || legs.c || '#6e7d8d';
+        ctx.fillStyle = color;
+        ctx.fillRect(x + 4, y + 25, 4, 12);
+        ctx.fillRect(x + 8, y + 25, 4, 12);
+        ctx.fillStyle = shade(color, 22);
+        ctx.fillRect(x + 5, y + 26, 2, 8);
+        ctx.fillRect(x + 9, y + 26, 2, 8);
+    }
 
     // Belt / undershirt detail.
     ctx.fillStyle = colors.undershirt || '#eeeeee';
