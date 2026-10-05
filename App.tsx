@@ -361,11 +361,18 @@ const App: React.FC = () => {
         let frameId = 0;
 
         const loop = (timeNow: number) => {
-            const dt = (timeNow - lastTime) / 1000;
+            const dt = Math.min(0.05, Math.max(0, (timeNow - lastTime) / 1000));
             lastTime = timeNow;
-            update(dt);
-            draw();
-            frameId = requestAnimationFrame(loop);
+
+            try {
+                update(dt);
+                draw();
+                frameId = requestAnimationFrame(loop);
+            } catch (err: unknown) {
+                console.error("Eartharia game-loop error:", err);
+                const message = err instanceof Error ? err.message : String(err);
+                setError(`Game loop stopped safely: ${message}`);
+            }
         };
         frameId = requestAnimationFrame(loop);
 
