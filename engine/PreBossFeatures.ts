@@ -933,7 +933,7 @@ export class PreBossFeatures {
             if (!fishWords.some(word => name.toLowerCase().includes(word.toLowerCase()))) continue;
 
             const id = Number(rawId);
-            if (prop && !prop.solid && !prop.armor && !prop.dmg) {
+            if (prop && !prop.solid && !prop.dmg) {
                 fishCandidates.push(name);
                 void id;
             }
