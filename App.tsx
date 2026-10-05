@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { GameEngine } from './engine/GameEngine';
 import { attachPreBossFeatures } from './engine/PreBossFeatures';
+import { drawItemIcon, drawTile, drawPlayerSprite, drawNpcSprite } from './engine/PixelArt';
 import { CHUNK_W, CHUNK_H, TILE_SIZE, NIGHT_START, WORLD_SIZES } from './constants';
 import { PROPS, IDS, RECIPES, initializeGameData } from './data/items';
 import { MODIFIERS } from './data/modifiers';
@@ -236,38 +237,20 @@ const CreateWorld: React.FC<{ onSave: (w: WorldData) => void, onCancel: () => vo
 
 const ItemIcon: React.FC<{ id: number; size?: number }> = ({ id, size = 40 }) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
+
     useEffect(() => {
         const cvs = canvasRef.current;
-        if (!cvs || !id || !PROPS[id]) return;
+        const prop = PROPS[id];
+        if (!cvs || !prop || id === 0) return;
+
         const ctx = cvs.getContext('2d');
         if (!ctx) return;
-        const prop = PROPS[id];
+
         ctx.clearRect(0, 0, size, size);
-        const scale = size / TILE_SIZE; 
-        ctx.save();
-        ctx.scale(scale, scale);
-        if (prop.c) {
-            ctx.fillStyle = prop.c;
-            ctx.fillRect(0, 0, TILE_SIZE, TILE_SIZE);
-        }
-        if (prop.icon) {
-            ctx.font = `${TILE_SIZE}px sans-serif`;
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.fillStyle = '#fff';
-            ctx.fillText(prop.icon, TILE_SIZE/2, TILE_SIZE/2 + 2);
-        }
-        if (prop.tint) {
-            ctx.save();
-            ctx.globalCompositeOperation = 'source-atop';
-            ctx.fillStyle = prop.tint;
-            ctx.globalAlpha = 0.5;
-            ctx.fillRect(0, 0, TILE_SIZE, TILE_SIZE);
-            ctx.restore();
-        }
-        ctx.restore();
+        drawItemIcon(ctx, id, prop, size);
     }, [id, size]);
-    if (!id || id === 0) return null;
+
+    if (!id || !PROPS[id]) return null;
     return <canvas ref={canvasRef} width={size} height={size} />;
 };
 
@@ -515,7 +498,11 @@ const App: React.FC = () => {
         const input = {
             left: keys.current['KeyA'] || keys.current['ArrowLeft'],
             right: keys.current['KeyD'] || keys.current['ArrowRight'],
-            jump: keys.current['Space'] || keys.current['ArrowUp']
+            jump: keys.current['Space'] || keys.current['ArrowUp'],
+            mouseHeld: mouse.current.left,
+            mouseX: mouse.current.x,
+            mouseY: mouse.current.y,
+            shift: keys.current['ShiftLeft'] || keys.current['ShiftRight']
         };
 
         engineRef.current.update(input, dt);
@@ -553,13 +540,54 @@ const App: React.FC = () => {
         const game = engineRef.current;
         const t = game.time;
         
-        // Sky Gradient Logic based on time
-        let skyHex = '#87CEEB'; 
-        if (t > NIGHT_START && t < 23000) skyHex = '#1a1a2e'; 
-        else if (t >= 23000 || t < 1000) skyHex = '#ff9966';
-        
-        ctx.fillStyle = skyHex;
+        // Layered sky: richer colors, sun/moon, and lightweight parallax scenery.
+        const dayPhase = (t % DAY_LENGTH) / DAY_LENGTH;
+        const isNight = t > NIGHT_START && t < NIGHT_END;
+
+        const sky = ctx.createLinearGradient(0, 0, 0, height);
+        if (isNight) {
+            sky.addColorStop(0, '#0b1831');
+            sky.addColorStop(0.55, '#20345a');
+            sky.addColorStop(1, '#39526f');
+        } else if (t >= NIGHT_END || t < 1800) {
+            sky.addColorStop(0, '#8ad7f4');
+            sky.addColorStop(0.60, '#ffd39a');
+            sky.addColorStop(1, '#ee8d62');
+        } else {
+            sky.addColorStop(0, '#58bfe9');
+            sky.addColorStop(0.65, '#9edff0');
+            sky.addColorStop(1, '#d5f0ca');
+        }
+        ctx.fillStyle = sky;
         ctx.fillRect(0, 0, width, height);
+
+        // Sun / moon stays in screen space and moves smoothly through the sky.
+        const orbX = width * (0.08 + dayPhase * 0.84);
+        const orbY = isNight
+            ? height * (0.18 + Math.sin(dayPhase * Math.PI) * 0.08)
+            : height * (0.22 + Math.sin(dayPhase * Math.PI) * 0.14);
+
+        ctx.save();
+        ctx.globalAlpha = isNight ? 0.95 : 0.88;
+        ctx.fillStyle = isNight ? '#f4f0d0' : '#fff1a8';
+        ctx.beginPath();
+        ctx.arc(orbX, orbY, isNight ? 18 : 24, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Soft distant hills.
+        ctx.globalAlpha = isNight ? 0.32 : 0.22;
+        ctx.fillStyle = '#2f6575';
+        ctx.beginPath();
+        ctx.moveTo(0, height * 0.48);
+        for (let x = 0; x <= width + 80; x += 80) {
+            ctx.lineTo(x, height * (0.46 + 0.035 * Math.sin((x + game.camera.x * 0.08) * 0.004)));
+        }
+        ctx.lineTo(width, height);
+        ctx.lineTo(0, height);
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.restore();
 
         ctx.save();
         ctx.translate(-Math.floor(game.camera.x), -Math.floor(game.camera.y));
@@ -570,171 +598,79 @@ const App: React.FC = () => {
         const ey = Math.min(game.height, sy + Math.ceil(height / TILE_SIZE) + 1);
 
         // --- Draw Walls & Tiles ---
-        // (Same drawing logic as before, ensuring we use game.width instead of CHUNK_W constant if strictly needed, 
-        // though index calc uses game.width inside loop)
+        ctx.imageSmoothingEnabled = false;
         for (let y = sy; y < ey; y++) {
             for (let x = sx; x < ex; x++) {
                 const idx = y * game.width + x;
                 const px = x * TILE_SIZE;
                 const py = y * TILE_SIZE;
-                
-                // Walls
+
                 const wid = game.walls[idx];
                 if (wid && PROPS[wid]) {
                     const wallProp = PROPS[wid];
-                    ctx.fillStyle = wallProp.c || '#555';
+                    ctx.fillStyle = wallProp.c || wallProp.tint || '#505a64';
                     ctx.fillRect(px, py, TILE_SIZE, TILE_SIZE);
+
+                    // Subtle wall pattern instead of a flat block of color.
+                    ctx.fillStyle = 'rgba(0,0,0,.10)';
+                    ctx.fillRect(px, py + TILE_SIZE - 2, TILE_SIZE, 2);
+                    ctx.fillStyle = 'rgba(255,255,255,.06)';
+                    ctx.fillRect(px, py, TILE_SIZE, 1);
+
                     if (wallProp.tint) {
                         ctx.fillStyle = wallProp.tint;
-                        ctx.globalAlpha = 0.4;
+                        ctx.globalAlpha = 0.18;
                         ctx.fillRect(px, py, TILE_SIZE, TILE_SIZE);
-                        ctx.globalAlpha = 1.0;
+                        ctx.globalAlpha = 1;
                     }
-                    ctx.fillStyle = 'rgba(0,0,0,0.4)';
-                    ctx.fillRect(px, py, TILE_SIZE, TILE_SIZE);
                 }
 
-                // Tiles
                 const id = game.world[idx];
-                if (id !== IDS.AIR && PROPS[id]) {
-                    const prop = PROPS[id];
-                    if (prop.liquid) {
-                        ctx.save();
-                        ctx.globalAlpha = 0.6; 
-                        ctx.fillStyle = prop.c || '#00f';
-                        ctx.fillRect(px, py, TILE_SIZE, TILE_SIZE);
-                        ctx.restore();
-                    } else {
-                        if (prop.solid && prop.c) {
-                            ctx.fillStyle = prop.c; 
-                            ctx.fillRect(px, py, TILE_SIZE, TILE_SIZE);
-                        }
-                        if (prop.icon) {
-                            ctx.font = `${TILE_SIZE}px sans-serif`;
-                            ctx.textAlign = 'center';
-                            ctx.textBaseline = 'middle';
-                            ctx.fillText(prop.icon, px + TILE_SIZE/2, py + TILE_SIZE/2 + 2);
-                        } else if (!prop.solid && prop.c) {
-                             ctx.fillStyle = prop.c;
-                             ctx.fillRect(px, py, TILE_SIZE, TILE_SIZE);
-                        }
-                        if (prop.tint) {
-                            ctx.fillStyle = prop.tint;
-                            ctx.globalAlpha = 0.4;
-                            ctx.fillRect(px, py, TILE_SIZE, TILE_SIZE);
-                            ctx.globalAlpha = 1.0;
-                        }
-                    }
+                if (id && PROPS[id]) {
+                    drawTile(ctx, id, PROPS[id], px, py, TILE_SIZE);
                 }
             }
         }
 
         // Entities
         const drawEntity = (ctx: CanvasRenderingContext2D, e: any, type: string) => {
-            const x = e.x;
-            const y = e.y;
             ctx.save();
             if (e.immune && e.immune % 4 < 2) ctx.globalAlpha = 0.5;
+
             if (e.face === -1) {
-                ctx.translate(x + e.w, y);
+                ctx.translate(e.x + e.w, e.y);
                 ctx.scale(-1, 1);
-                ctx.translate(-x, -y);
+                ctx.translate(-e.x, -e.y);
             }
-            const legOffset = Math.sin(e.walkFrame) * 4;
 
             if (type === 'player') {
-                 // Skin
-                 ctx.fillStyle = game.player.colors.skin || '#ffccbc'; 
-                 ctx.fillRect(x + 4, y + 2, 8, 8); 
-                 // Shirt
-                 ctx.fillStyle = game.player.colors.shirt || '#00acc1'; 
-                 ctx.fillRect(x + 2, y + 10, 12, 14);
-                 // Pants
-                 ctx.fillStyle = game.player.colors.pants || '#1e88e5'; 
-                 ctx.fillRect(x + 4 - legOffset, y + 24, 4, 12);
-                 ctx.fillRect(x + 8 + legOffset, y + 24, 4, 12);
-                 // Shoes
-                 ctx.fillStyle = game.player.colors.shoes || '#3e2723';
-                 ctx.fillRect(x + 3 - legOffset, y + 36, 6, 4);
-                 ctx.fillRect(x + 7 + legOffset, y + 36, 6, 4);
-                 // Hair
-                 ctx.fillStyle = game.player.colors.hair || '#5d4037'; 
-                 ctx.fillRect(x + 2, y, 12, 4);
+                drawPlayerSprite(ctx, e, e.x, e.y);
 
-                 // Item Swing
-                 if (e.swinging > 0) {
-                     ctx.save();
-                     ctx.translate(x + e.w/2, y + e.h/2); 
-                     if (e.face === -1) { ctx.scale(-1, 1); }
-                     const progress = 1 - (e.swinging / 15);
-                     const startAngle = e.targetAngle - Math.PI/3;
-                     const endAngle = e.targetAngle + Math.PI/3;
-                     const currentAngle = startAngle + (endAngle - startAngle) * progress;
-                     ctx.rotate(currentAngle);
-                     ctx.fillStyle = '#bbb'; 
-                     ctx.fillRect(0, -2, 40, 4); 
-                     ctx.fillStyle = '#5d4037';
-                     ctx.fillRect(-6, -3, 6, 6); 
-                     ctx.restore();
-                 }
-            } else if (type === 'slime') {
-                 ctx.fillStyle = 'rgba(0, 150, 255, 0.8)';
-                 ctx.beginPath();
-                 ctx.arc(x + e.w/2, y + e.h/2 + 4, e.w/2, 0, Math.PI, true);
-                 ctx.fill();
-            } else if (type === 'demon_eye') {
-                 ctx.fillStyle = '#eee';
-                 ctx.beginPath();
-                 ctx.arc(x + e.w/2, y + e.h/2, e.w/2, 0, Math.PI*2);
-                 ctx.fill();
-                 ctx.fillStyle = '#b71c1c';
-                 ctx.beginPath();
-                 ctx.arc(x + e.w/2, y + e.h/2, e.w/4, 0, Math.PI*2);
-                 ctx.fill();
-            } else if (type === 'merchant') {
-                 ctx.fillStyle = '#f57f17';
-                 ctx.fillRect(x + 2, y - 2, 12, 6);
-                 ctx.fillStyle = '#ffccbc';
-                 ctx.fillRect(x + 4, y + 4, 8, 8);
-                 ctx.fillStyle = '#eee';
-                 ctx.fillRect(x + 4, y + 10, 8, 4);
-                 ctx.fillStyle = '#d84315';
-                 ctx.fillRect(x + 2, y + 14, 12, 14);
-                 ctx.fillStyle = '#3e2723';
-                 ctx.fillRect(x + 4 - legOffset, y + 28, 4, 12);
-                 ctx.fillRect(x + 8 + legOffset, y + 28, 4, 12);
-            } else if (type === 'nurse') {
-                 ctx.fillStyle = '#fff';
-                 ctx.fillRect(x + 4, y, 8, 4);
-                 ctx.fillStyle = '#c62828';
-                 ctx.fillRect(x + 7, y+1, 2, 2);
-                 ctx.fillStyle = '#ffccbc';
-                 ctx.fillRect(x + 4, y + 4, 8, 8);
-                 ctx.fillStyle = '#fff';
-                 ctx.fillRect(x + 3, y + 12, 10, 12);
-                 ctx.fillStyle = '#fff';
-                 ctx.fillRect(x + 3, y + 24, 10, 10);
-            } else if (type === 'guide') {
-                 ctx.fillStyle = '#795548'; 
-                 ctx.fillRect(x + 3, y, 10, 4);
-                 ctx.fillStyle = '#ffccbc';
-                 ctx.fillRect(x + 4, y + 4, 8, 8);
-                 ctx.fillStyle = '#8d6e63'; 
-                 ctx.fillRect(x + 2, y + 12, 12, 14);
-                 ctx.fillStyle = '#5d4037'; 
-                 ctx.fillRect(x + 4 - legOffset, y + 26, 4, 14);
-                 ctx.fillRect(x + 8 + legOffset, y + 26, 4, 14);
-            } else if (type === 'zombie') {
-                 ctx.fillStyle = '#689f38'; 
-                 ctx.fillRect(x + 4, y + 2, 8, 8);
-                 ctx.fillStyle = '#558b2f'; 
-                 ctx.fillRect(x + 2, y + 10, 12, 14);
-                 ctx.fillStyle = '#1565c0'; 
-                 ctx.fillRect(x + 4 - legOffset, y + 24, 4, 12);
-                 ctx.fillRect(x + 8 + legOffset, y + 24, 4, 12);
-                 ctx.fillStyle = '#689f38';
-                 ctx.fillRect(x + 10, y + 12, 10, 4);
+                if (e.swinging > 0) {
+                    ctx.save();
+                    ctx.translate(e.x + e.w / 2, e.y + e.h / 2);
+                    const progress = 1 - e.swinging / 15;
+                    const startAngle = e.targetAngle - Math.PI / 3;
+                    const endAngle = e.targetAngle + Math.PI / 3;
+                    ctx.rotate(startAngle + (endAngle - startAngle) * progress);
+
+                    const held = e.inv?.[e.sel];
+                    const heldColor = held?.id && PROPS[held.id]?.tint
+                        ? PROPS[held.id].tint
+                        : '#c9d3dc';
+
+                    ctx.fillStyle = '#4b3425';
+                    ctx.fillRect(-5, -2, 8, 4);
+                    ctx.fillStyle = heldColor;
+                    ctx.fillRect(2, -3, 34, 6);
+                    ctx.fillStyle = '#ffffff';
+                    ctx.fillRect(4, -2, 28, 1);
+                    ctx.restore();
+                }
+            } else {
+                drawNpcSprite(ctx, e, type);
             }
+
             ctx.restore();
         };
 
@@ -751,11 +687,23 @@ const App: React.FC = () => {
         });
 
         game.loot.forEach(l => {
-             const prop = PROPS[l.id];
-             if (prop) {
-                 ctx.font = '12px sans-serif';
-                 ctx.fillText(prop.icon, l.x, l.y);
-             }
+            const prop = PROPS[l.id];
+            if (!prop) return;
+
+            ctx.save();
+            ctx.globalAlpha = l.dead ? 0 : 1;
+            drawItemIcon(ctx, l.id, prop, 16);
+            ctx.translate(l.x - 8, l.y - 8);
+            ctx.restore();
+
+            if (l.n > 1) {
+                ctx.fillStyle = '#ffffff';
+                ctx.font = 'bold 9px monospace';
+                ctx.strokeStyle = '#111827';
+                ctx.lineWidth = 3;
+                ctx.strokeText(String(l.n), l.x + 5, l.y + 6);
+                ctx.fillText(String(l.n), l.x + 5, l.y + 6);
+            }
         });
 
         game.particles.forEach(pt => {
