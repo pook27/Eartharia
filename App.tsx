@@ -420,6 +420,13 @@ const App: React.FC = () => {
                 engineRef.current.smartCursor = !engineRef.current.smartCursor;
                 setSmartCursor(engineRef.current.smartCursor);
             }
+            if (e.code === 'KeyK') {
+                const moved = engineRef.current.quickStackToNearbyChests();
+                if (!moved) engineRef.current.compactInventory();
+            }
+            if (e.code === 'KeyB') {
+                engineRef.current.compactInventory();
+            }
             if (e.key >= '1' && e.key <= '0') {
                 const idx = (parseInt(e.key) || 10) - 1;
                 engineRef.current.player.sel = idx;
@@ -688,21 +695,23 @@ const App: React.FC = () => {
 
         game.loot.forEach(l => {
             const prop = PROPS[l.id];
-            if (!prop) return;
+            if (!prop || l.dead) return;
 
             ctx.save();
-            ctx.globalAlpha = l.dead ? 0 : 1;
-            drawItemIcon(ctx, l.id, prop, 16);
+            ctx.globalAlpha = 0.98;
             ctx.translate(l.x - 8, l.y - 8);
+            drawItemIcon(ctx, l.id, prop, 16);
             ctx.restore();
 
             if (l.n > 1) {
+                ctx.save();
                 ctx.fillStyle = '#ffffff';
                 ctx.font = 'bold 9px monospace';
                 ctx.strokeStyle = '#111827';
                 ctx.lineWidth = 3;
                 ctx.strokeText(String(l.n), l.x + 5, l.y + 6);
                 ctx.fillText(String(l.n), l.x + 5, l.y + 6);
+                ctx.restore();
             }
         });
 
@@ -1212,7 +1221,7 @@ const App: React.FC = () => {
             )}
 
             <div className="absolute bottom-4 left-4 text-xs text-gray-400 drop-shadow-md">
-                WASD: Move | Space: Jump | Click: Attack/Dig/Place | Esc: Inventory | Ctrl: Smart Cursor ({smartCursor ? 'ON' : 'OFF'}) | Right Click: Interact | Shift: Auto Torch
+                WASD: Move | Space: Jump | Hold Click: Auto-Mine/Place | Esc: Inventory | Ctrl: Smart Cursor (${smartCursor ? 'ON' : 'OFF'}) | K: Quick Stack | B: Sort | Right Click: Interact | Shift: Auto Torch
             </div>
         </div>
     );
