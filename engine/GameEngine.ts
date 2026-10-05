@@ -21,6 +21,8 @@ export class GameEngine {
     invDirty: boolean; // Flag to sync React state
     smartCursor: boolean;
     attackCooldown: number;
+    interactionCooldown: number;
+    autoMine: boolean;
     
     // World Config
     width: number;
@@ -45,6 +47,8 @@ export class GameEngine {
         this.invDirty = true;
         this.smartCursor = false;
         this.attackCooldown = 0;
+        this.interactionCooldown = 0;
+        this.autoMine = true;
         
         // Initialize player with empty arrays to prevent crashes if accessed before start()
         this.player = {
@@ -143,6 +147,7 @@ export class GameEngine {
         // Time Cycle
         this.time = (this.time + 1) % DAY_LENGTH;
         if(this.attackCooldown > 0) this.attackCooldown--;
+        if(this.interactionCooldown > 0) this.interactionCooldown--;
         
         // Player State
         const p = this.player;
@@ -189,6 +194,15 @@ export class GameEngine {
         }
 
         this.applyPhysics(p);
+
+        // Hold-to-mine / hold-to-place. The first click still acts immediately;
+        // subsequent actions are rate-limited to keep the game playable and CPU-friendly.
+        if (input.mouseHeld && this.autoMine && this.interactionCooldown <= 0) {
+            const mx = Number.isFinite(input.mouseX) ? input.mouseX : 0;
+            const my = Number.isFinite(input.mouseY) ? input.mouseY : 0;
+            const target = this.getSmartTarget(mx, my);
+            this.interact(mx, my, true, target, !!input.shift);
+        }
         
         // NPC AI
         this.updateNPCs(dt);
@@ -220,13 +234,16 @@ export class GameEngine {
             }
 
             // Magnet
-            const dist = Math.hypot(p.x - l.x, p.y - l.y);
-            if (dist < 100) { 
-                const pull = (100 - dist) / 100;
-                l.x += (p.x - l.x) * 0.15 * pull; 
-                l.y += (p.y - l.y) * 0.15 * pull;
-                
-                if (dist < 30) {
+            const dist = Math.hypot(
+                (p.x + p.w / 2) - (l.x),
+                (p.y + p.h / 2) - (l.y)
+            );
+            if (dist < 135) {
+                const pull = (135 - dist) / 135;
+                l.x += (p.x + p.w / 2 - l.x) * 0.15 * pull;
+                l.y += (p.y + p.h / 2 - l.y) * 0.15 * pull;
+
+                if (dist < 28) {
                     if (this.addToInv(l.id, l.n, l.prefix)) {
                         l.dead = true;
                     }
@@ -400,10 +417,10 @@ export class GameEngine {
         }
     }
 
-    isSolid(x: number, y: number) {
+    isSolid(x: number, y: number): boolean {
         if (x < 0 || x >= this.width || y < 0 || y >= this.height) return true;
         const t = this.world[y * this.width + x];
-        return t && PROPS[t]?.solid; 
+        return !!(t && PROPS[t]?.solid);
     }
 
     collide(e: any, isX: boolean) {
@@ -484,6 +501,7 @@ export class GameEngine {
              for(let i=0; i<reach * TILE_SIZE; i+=TILE_SIZE/2) {
                  const tx = Math.floor((this.player.x + this.player.w/2 + dirX * i) / TILE_SIZE);
                  const ty = Math.floor((this.player.y + this.player.h/2 + dirY * i) / TILE_SIZE);
+                 if (tx < 0 || tx >= this.width || ty < 0 || ty >= this.height) continue;
                  const id = this.world[ty*this.width+tx];
                  if (id >= 9000) { 
                      return { x: tx * TILE_SIZE, y: ty * TILE_SIZE };
@@ -495,7 +513,11 @@ export class GameEngine {
     }
 
     interact(mx: number, my: number, isLeft: boolean, smartTarget?: {x: number, y: number} | null, shiftKey: boolean = false) {
-        let item = this.player.inv[this.player.sel];
+        let item = this.player.inv?.[this.player.sel];
+        if (!item) return;
+
+        // Prevent held input from running an interaction every render frame.
+        this.interactionCooldown = 5;
         
         let usedTorch = false;
         if (shiftKey && isLeft) {
@@ -993,7 +1015,8 @@ export class GameEngine {
     }
     
     removeItem(id: number, qty: number) {
-        for (let i = 0; i < this.player.inv.length; i++) {
+        if (!id || qty <= 0) return;
+        for (let i = 0; i < this.player.inv.length && qty > 0; i++) {
             const slot = this.player.inv[i];
             if (slot.id === id) {
                 if (slot.n >= qty) {
@@ -1083,6 +1106,7 @@ export class GameEngine {
 
     transferItem(fromChest: boolean, index: number) {
         if (!this.activeChest) return;
+        if (!Number.isInteger(index) || index < 0 || index >= this.activeChest.slots.length) return;
         
         if (fromChest) {
             const item = this.activeChest.slots[index];
@@ -1147,59 +1171,53 @@ export class GameEngine {
     }
     
     addToInv(id: number, n: number, prefix?: number): boolean {
+        if (!id || n <= 0) return false;
+
         const prop = PROPS[id];
 
         const pushToList = (list: InventorySlot[]) => {
-             // 1. Fill existing stacks
-             for (const slot of list) {
-                 if (slot.id === id && (!prefix && !slot.prefix)) {
-                      const space = 999 - slot.n;
-                      if (space > 0) {
-                          const amt = Math.min(space, n);
-                          slot.n += amt;
-                          n -= amt;
-                          if (n <= 0) return true;
-                      }
-                 }
-             }
-             // 2. Fill empty slots
-             for (const slot of list) {
-                 if (slot.id === 0) {
-                     slot.id = id;
-                     slot.n = n;
-                     slot.prefix = prefix;
-                     n = 0;
-                     return true;
-                 }
-             }
-             return false;
+            if (!list) return false;
+
+            for (const slot of list) {
+                if (slot.id === id && !slot.prefix && !prefix) {
+                    const space = 999 - slot.n;
+                    if (space > 0) {
+                        const amount = Math.min(space, n);
+                        slot.n += amount;
+                        n -= amount;
+                        if (n <= 0) return true;
+                    }
+                }
+            }
+
+            for (const slot of list) {
+                if (slot.id === 0) {
+                    slot.id = id;
+                    slot.n = Math.min(999, n);
+                    slot.prefix = prefix;
+                    n -= slot.n;
+                    if (n <= 0) return true;
+                }
+            }
+
+            return n <= 0;
         };
 
-        if (prop?.coin) {
-             if (pushToList(this.player.coins)) {
-                 this.invDirty = true;
-                 return true;
-             }
-        }
-        if (prop?.ammo) {
-             if (pushToList(this.player.ammo)) {
-                 this.invDirty = true;
-                 return true;
-             }
-        }
-        
-        // Always try main inventory if not fully picked up or not special type
-        if (pushToList(this.player.inv)) {
+        if (prop?.coin && pushToList(this.player.coins)) {
             this.invDirty = true;
             return true;
         }
-        
-        // If we picked up something but not all, trigger update
-        if (n < (arguments[1] as number)) this.invDirty = true;
-        
-        return n <= 0;
+
+        if (prop?.ammo && pushToList(this.player.ammo)) {
+            this.invDirty = true;
+            return true;
+        }
+
+        const ok = pushToList(this.player.inv);
+        if (ok) this.invDirty = true;
+        return ok;
     }
-    
+
     updateStats() {
         let def = 0;
         const addItemStats = (item: any) => {
@@ -1259,6 +1277,78 @@ export class GameEngine {
         this.collide(e, false);
     }
     
+    quickStackToNearbyChests(radius = 420) {
+        const p = this.player;
+        const nearbyKeys = Object.keys(this.chests).filter(key => {
+            const [sx, sy] = key.split(',').map(Number);
+            if (!Number.isFinite(sx) || !Number.isFinite(sy)) return false;
+            return Math.hypot(p.x / TILE_SIZE - sx, p.y / TILE_SIZE - sy) <= radius / TILE_SIZE;
+        });
+
+        if (nearbyKeys.length === 0) return false;
+
+        let movedAny = false;
+        for (const key of nearbyKeys) {
+            const chest = this.chests[key];
+            if (!Array.isArray(chest)) continue;
+
+            for (const slot of this.player.inv) {
+                if (!slot || slot.id === 0 || slot.n <= 0) continue;
+
+                // Avoid depositing the currently selected tool unless another copy exists.
+                const matches = chest.filter(c => c.id === slot.id && !c.prefix && !slot.prefix);
+                for (const target of matches) {
+                    const space = Math.max(0, 999 - target.n);
+                    const amount = Math.min(space, slot.n);
+                    if (amount <= 0) continue;
+                    target.n += amount;
+                    slot.n -= amount;
+                    movedAny = true;
+                    if (slot.n <= 0) {
+                        slot.id = 0;
+                        slot.prefix = undefined;
+                        break;
+                    }
+                }
+
+                if (slot.id !== 0) {
+                    const empty = chest.find(c => c.id === 0);
+                    if (empty) {
+                        empty.id = slot.id;
+                        empty.n = slot.n;
+                        empty.prefix = slot.prefix;
+                        slot.id = 0;
+                        slot.n = 0;
+                        slot.prefix = undefined;
+                        movedAny = true;
+                    }
+                }
+            }
+        }
+
+        if (movedAny) {
+            this.invDirty = true;
+            return true;
+        }
+
+        return false;
+    }
+
+    compactInventory() {
+        const inv = this.player.inv;
+        const compacted: InventorySlot[] = [];
+        const empty = () => ({ id: 0, n: 0 } as InventorySlot);
+
+        for (const slot of inv) {
+            if (slot?.id && slot.n > 0) compacted.push({ ...slot });
+        }
+
+        while (compacted.length < inv.length) compacted.push(empty());
+        for (let i = 0; i < inv.length; i++) inv[i] = compacted[i];
+
+        this.invDirty = true;
+    }
+
     moveItem(srcList: string, srcIdx: number, dstList: string, dstIdx: number) {
         const getList = (name: string): any[] | null => {
             if (name === 'inv') return this.player.inv;
@@ -1274,9 +1364,10 @@ export class GameEngine {
         const dst = getList(dstList);
 
         if (!src || !dst) return;
-        
+        if (srcIdx < 0 || dstIdx < 0 || srcIdx >= src.length || dstIdx >= dst.length) return;
+
         const itemS = src[srcIdx];
-        const itemD = dst[dstIdx];
+        const itemD = dst[dstIdx] || { id: 0, n: 0 };
 
         if (!itemS) return;
 

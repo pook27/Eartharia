@@ -28,15 +28,29 @@ export const initializeGameData = async () => {
     console.log("Initializing Game Data...");
     try {
         const fetchJson = async (path: string) => {
-            const res = await fetch(path);
-            const contentType = res.headers.get("content-type");
-            if (!res.ok) throw new Error(`Failed to fetch ${path}: ${res.status} ${res.statusText}`);
-            if (contentType && contentType.includes("text/html")) {
-                // Return empty array/object gracefully if file is missing (development safety)
-                console.warn(`File missing or HTML returned for ${path}`);
-                return []; 
+            let res: Response;
+
+            try {
+                res = await fetch(path, { cache: 'no-store' });
+            } catch (error) {
+                throw new Error(`Network error while loading ${path}: ${error instanceof Error ? error.message : String(error)}`);
             }
-            return await res.json();
+
+            if (!res.ok) {
+                throw new Error(`Failed to load ${path}: HTTP ${res.status} ${res.statusText}. Run the app through Vite (npm run dev), not python3 -m http.server.`);
+            }
+
+            const contentType = (res.headers.get('content-type') || '').toLowerCase();
+            if (!contentType.includes('json')) {
+                const preview = (await res.text()).slice(0, 120).replace(/\s+/g, ' ');
+                throw new Error(`Expected JSON from ${path}, got ${contentType || 'unknown content type'}: ${preview}`);
+            }
+
+            try {
+                return await res.json();
+            } catch (error) {
+                throw new Error(`Invalid JSON in ${path}: ${error instanceof Error ? error.message : String(error)}`);
+            }
         };
 
         const [itemsData, recipesData, tablesData, weaponsData] = await Promise.all([
@@ -46,7 +60,12 @@ export const initializeGameData = async () => {
             fetchJson('json/weapons.json')
         ]);
 
-        console.log(`Loaded ${itemsData?.length || 0} items, ${recipesData?.length || 0} recipes, ${tablesData?.length || 0} tables, ${weaponsData?.length || 0} weapons.`);
+        if (!Array.isArray(itemsData)) throw new Error('items.json did not contain an array of items.');
+        if (!Array.isArray(recipesData)) throw new Error('recipes.json did not contain an array of recipes.');
+        if (!Array.isArray(tablesData)) throw new Error('tables.json did not contain an array of crafting tables.');
+        if (!Array.isArray(weaponsData)) throw new Error('weapons.json did not contain an array of weapon records.');
+
+        console.log(`Loaded ${itemsData.length} items, ${recipesData.length} recipes, ${tablesData.length} tables, ${weaponsData.length} weapons.`);
         
         const NAME_TO_ID: Record<string, number> = {};
 
