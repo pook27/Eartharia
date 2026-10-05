@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { GameEngine } from './engine/GameEngine';
+import { attachPreBossFeatures } from './engine/PreBossFeatures';
 import { CHUNK_W, CHUNK_H, TILE_SIZE, NIGHT_START, WORLD_SIZES } from './constants';
 import { PROPS, IDS, RECIPES, initializeGameData } from './data/items';
 import { MODIFIERS } from './data/modifiers';
@@ -406,6 +407,7 @@ const App: React.FC = () => {
             // Re-instantiate engine for clean state
             engineRef.current = new GameEngine();
             engineRef.current.start(selectedChar, selectedWorld);
+            attachPreBossFeatures(engineRef.current);
             
             // Sync initial UI
             setInv([...engineRef.current.player.inv]);
@@ -424,6 +426,7 @@ const App: React.FC = () => {
 
         const onKD = (e: KeyboardEvent) => {
             keys.current[e.code] = true;
+            attachPreBossFeatures(engineRef.current).handleKey(e.code);
             if (e.code === 'Escape') {
                 if (showShop) setShowShop(false);
                 else if (activeChest) engineRef.current.activeChest = null;
