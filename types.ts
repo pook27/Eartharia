@@ -74,6 +74,7 @@ export interface NPC {
     defense?: number;
     homeX?: number; // For town NPCs
     homeY?: number;
+    eventTag?: string;
 }
 
 export interface ActiveChest {
